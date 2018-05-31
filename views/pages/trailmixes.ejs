@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+    <% include ../partials/nav.ejs %>
+
+        <main class="home">
+            <div class="th-hero th-hero--zion" style="height: 200px;">
+                <div class="hero-content slds-text-align_center">
+                    <h1 class="th-hero__heading">¡Trailmixes!</h1>
+                </div>
+            </div>
+            <br />
+            <div class="th-careers">
+                <div class="slds-text-align_center slds-p-horizontal_small">
+                    <h3 class="th-text--large th-text--nexa-rust th-color--navy slds-m-top_large slds-m-bottom_medium">
+                        Adquiere nuevas habilidades
+                    </h3>
+                    <p class="th-color--navy th-text--medium">
+                        Trailhead inspira el aprendizaje cont&iacute;nuo a lo largo de tu carrera.
+                    </p>
+                </div>
+                <!-- Header de trailmix-->
+                <% results.rows.forEach(function(r) { %>
+                <div class="tile-container">
+                    <article class="tile tile-type-trailmix" data-content-type="trailmix">
+                        <div class="tile-content">
+                            <div class="tile-header" style="">
+                                <a class="tile-icon" tabindex="-1" aria-hidden="true" href="/en/me/00550000006yDdKAAU">
+                                    <img alt="trailmix creator image" class="img-circle trailmix-creator-image" src="https://trailhead-web.s3.amazonaws.com/uploads/users/5396019/photos/thumb_030804d3576dab0cdc2a558055816208e421312a9d1495117d57928ef380d7f2.png?updatedAt=20180530195923">
+                                </a>
+                                <div class="tile-meta-content">
+                                    <div class="progress-text">
+                                        <%= r.id %> - <%= r.name %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile-body">
+                                <div>
+                                    <span class="tile-type">
+                                        Trailmix
+                                    </span>
+                                    –
+                                    <a href="/en/me/00550000006yDdKAAU">Salesforce Trailhead</a>
+                                </div>
+                                <h3>
+                                    <a title="Mint Chip - Content Release" class="tile-title" href="/users/00550000006yDdKAAU/trailmixes/mint-chip-content-release">Mint Chip - Content Release</a>
+                                </h3>
+                                <div class="tile-description">Get the scoop on the latest Trailhead badges! Released May 21st, 2018</div>
+                                <ul class="tile-actions">
+                                </ul>
+                                <ul class="tile-tags">
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                <% }); %>
+            </div>
+            <div class="slds-brand-band slds-brand-band_medium">
+
+            </div>
+        </main>
+
+</body>
+
+</html>

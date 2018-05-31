@@ -35,4 +35,16 @@ express()
       res.send("Error " + err);
     }
   })
+  .get('/trailmixes', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const results = await client.query('SELECT * FROM test_table');
+      console.error(results);
+      res.render('pages/trailmixes', {results : results});
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
