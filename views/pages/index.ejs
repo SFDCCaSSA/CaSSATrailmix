@@ -8,59 +8,77 @@
 
   <% include ../partials/nav.ejs %>
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started with Node on Heroku</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started with Node on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
-
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
+  <main class="home">
+    <div class="th-hero th-hero--zion" style="height: 200px;">
+      <div class="hero-content slds-text-align_center">
+        <h1 class="th-hero__heading">¡Bienvenido a Salesforce!</h1>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
+    <br />
+    <div class="th-careers">
+      <div class="slds-text-align_center slds-p-horizontal_small">
+        <h3 class="th-text--large th-text--nexa-rust th-color--navy slds-m-top_large slds-m-bottom_medium">
+          Adquiere nuevas habilidades
+        </h3>
+        <p class="th-color--navy th-text--medium">
+          Trailhead inspira el aprendizaje cont&iacute;nuo a lo largo de tu carrera.
+        </p>
+      </div>
+      <div class="th-careers__headshots slds-grid slds-wrap">
+        <div class="th-careers__headshot slds-grid slds-wrap">
+          <figure>
+            <img class="th-figure__image" src="https://trailhead.salesforce.com/assets/home/salesforce-admin-15b07906e0febc1eeb6aed2394ad3d24639a25987e9face816cca670f5e762cf.png" alt="Salesforce admin" />
+          </figure>
+          <figcaption class="th-figure__caption slds-m-top_small">
+            <a>Administrador de Salesforce</a>
+          </figcaption>
+        </div>
+        <div class="th-careers__headshot slds-grid slds-wrap">
+          <figure>
+            <img class="th-figure__image" src="https://trailhead.salesforce.com/assets/home/salesforce-developer-ff6f1ffc9f80c320d0217b024312a3103d917de81489d6a5cea5277e84ff4464.png" alt="Salesforce admin" />
+          </figure>
+          <figcaption class="th-figure__caption slds-m-top_small">
+            <a>Desarrollador de Salesforce</a>
+          </figcaption>
+        </div>
+        <div class="th-careers__headshot slds-grid slds-wrap">
+          <figure>
+            <img class="th-figure__image" src="https://trailhead.salesforce.com/assets/home/sales-manager-b545917e98320ce88d2bc1b5d218b9fbf65a9c41da5e04e8aa4fb7c8642e0167.png" alt="Salesforce admin" />
+          </figure>
+          <figcaption class="th-figure__caption slds-m-top_small">
+            <a>Gerente de Ventas</a>
+          </figcaption>
+        </div>
+        <div class="th-careers__headshot slds-grid slds-wrap">
+          <figure>
+            <img class="th-figure__image" src="https://trailhead.salesforce.com/assets/home/marketing-manager-9b0a75c932d3f1cc1132a86f70ac17ce50d25ede6c4e708f1e9d1cc65c781d79.png" alt="Salesforce admin" />
+          </figure>
+          <figcaption class="th-figure__caption slds-m-top_small">
+            <a>Gerente de Marketing</a>
+          </figcaption>
+        </div>
+        <div class="th-careers__headshot slds-grid slds-wrap">
+          <figure>
+            <img class="th-figure__image" src="https://trailhead.salesforce.com/assets/home/technical-architect-81439d650e5f868e86a4d471ce099f51c6c785e29245e63157ea5bb1068ba329.png" alt="Salesforce admin" />
+          </figure>
+          <figcaption class="th-figure__caption slds-m-top_small">
+            <a>Arquitecto T&eacute;cnico</a>
+          </figcaption>
+        </div>
+        <div class="th-careers__headshot slds-grid slds-wrap">
+          <figure>
+            <img class="th-figure__image" src="https://trailhead.salesforce.com/assets/home/business-analyst-57f471c12ac6b2bfd730629a11580dcd191c209cf8ec9c44c1b306a6e06d3be0.png" alt="Salesforce admin" />
+          </figure>
+          <figcaption class="th-figure__caption slds-m-top_small">
+            <a>Analista de Negocio</a>
+          </figcaption>
+        </div>
+      </div>
     </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+    <div class="slds-brand-band slds-brand-band_medium">
 
+    </div>
+  </main>	
 
 </body>
 </html>

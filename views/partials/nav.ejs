@@ -1,33 +1,67 @@
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-      </li>
-      <li>
-        <a href="https://devcenter.heroku.com/articles/how-heroku-works"><span class="glyphicon glyphicon-user"></span> How Heroku Works</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Getting Started Guides <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-go">Getting Started with Go on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-clojure">Getting Started with Clojure on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-scala">Getting Started with Scala on Heroku</a></li>
-            <li class="divider"></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-heroku-and-connect-without-local-dev">Getting Started on Heroku with Heroku Connect</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-jruby">Getting Started with Ruby on Heroku (Microsoft Windows)</a></li>
-          </ul>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-right">
-        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev Center</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+
+		<header class="th-header" >
+			<div class="slds-container_x-large slds-container_center slds-grid slds-p-horizontal_medium slds-show_large" >
+				<!--div class="slds-global-header__item"-->
+				<a title="site home">
+					<img alt="trailhead" style="width: 80px;" class="slds-m-vertical_medium" src="https://trailhead.salesforce.com/assets/trailhead-logo-d08befd2d122442532289967a988aa7a49eef27154969718441fbde0bd122fe8.svg" />
+				</a>
+				<!--/div-->
+				<!--div class="slds-grid slds-grid_vertical-align-center"-->
+				<div class="slds-m-left_large slds-m-top_medium">
+					<!--div aria-expanded="false" aria-haspopup="listbox" class="slds-form-element slds-lookup" role="combobox" -->
+					<div>
+						<form>
+							<div class="slds-form-element">
+								<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left ">
+									<span class="slds-icon slds-input__icon slds-input__icon_left" title="Buscar">
+										<svg class="slds-input__icon slds-input__icon_left" aria-hidden="true">
+											<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search" />							
+										</svg>
+										<span class="slds-assistive-text">Buscar</span>
+									</span>
+									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="global-search-01" placeholder="Buscar en Salesforce" role="textbox" />
+								</div>
+							</div>
+						</form>						
+						<br />
+						<nav role="navigation">
+							<ul class="slds-grid th-header__nav-list">
+								<li class="slds-context-bar__item">
+									<a href="javascript:void(0);" class="slds-context-bar__label-action" title="Home">
+		            					<span class="slds-assistive-text">Current Page:</span>
+		            					<span class="slds-truncate" title="Home">Inicio</span>
+		        					</a>
+								</li>
+								<li class="slds-context-bar__item">
+									<a href="javascript:void(0);" class="slds-context-bar__label-action" title="Home">
+		            					<span class="slds-truncate" title="Trails">Trailmixes</span>
+		        					</a>
+								</li>
+								<li class="slds-context-bar__item">
+									<a href="javascript:void(0);" class="slds-context-bar__label-action" title="Home">
+		            					<span class="slds-truncate" title="Trails">Microdemos</span>
+		        					</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>	
+				<!--ul class="slds-grid slds-grid_vertical-align-center">
+					<li class="slds-dropdown-trigger slds-dropdown-trigger_click">
+						<button class="slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-header__button_icon" title="Help and Training">
+				            <svg class="slds-button__icon slds-global-header__icon" aria-hidden="true">
+				            	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question" />
+				            </svg>
+				            <span class="slds-assistive-text">Ayuda y Capacitaci&oacute;n</span>
+			        	</button>
+			        </li>
+			        <li class="slds-dropdown-trigger slds-dropdown-trigger_click slds-m-left_x-small">
+			        	<button class="slds-button" title="nombre persona" aria-haspopup="true">
+			        		<span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+			        			<img alt="Person name" src="/assets/images/avatar2.jpg" title="Avatar usuario" />
+        					</span>
+    					</button>
+    				</li>
+				</ul-->		
+			</div>			
+		</header>
