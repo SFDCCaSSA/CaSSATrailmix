@@ -38,7 +38,7 @@ express()
   .get('/trailmixes', async (req, res) => {
     try {
       const client = await pool.connect()
-      const results = await client.query('SELECT * FROM test_table');
+      const results = await client.query('SELECT * FROM trailmixes');
       console.error(results);
       res.render('pages/trailmixes', {results : results});
       client.release();
