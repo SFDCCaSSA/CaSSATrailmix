@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
+  ssl: false
 });
 
 express()
@@ -53,6 +53,18 @@ express()
       const results = await client.query('SELECT * FROM microdemos');
       console.error(results);
       res.render('pages/microdemos', {results : results});
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+  .get('/webinars', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const results = await client.query('SELECT * FROM webinars');
+      console.error(results);
+      res.render('pages/webinars', {results : results});
       client.release();
     } catch (err) {
       console.error(err);

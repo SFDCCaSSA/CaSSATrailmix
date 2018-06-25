@@ -12,7 +12,7 @@
         <main class="home">
             <div class="th-hero th-hero--zion" style="height: 200px;">
                 <div class="hero-content slds-text-align_center">
-                    <h1 class="th-hero__heading">¡Microdemos!</h1>
+                    <h1 class="th-hero__heading">¡Webinars!</h1>
                 </div>
             </div>
             <br />
@@ -20,10 +20,10 @@
                 <div class="trailmix-hero">
                     <div class="trailmix-hero__content">
                         <h1 class="th-text th-text--x-large th-text--bold slds-text-align_center slds-m-vertical_x-small">
-                            Microdemos
+                            Webinars
                         </h1>
                         <p class="th-text th-text--default slds-m-top_x-small slds-m-bottom_large th-color--ice th-max-width--large slds-text-align_center">
-                            Microdemos are custom learning paths you create from your favorite trails, modules, projects, and superbadges. Share them
+                            Webinars are custom learning paths you create from your favorite trails, modules, projects, and superbadges. Share them
                             to guide your fellow Trailblazers!
                         </p>
                         <div>
@@ -53,11 +53,12 @@
 <div class="slds-grid slds-wrap">
 
                             <% results.rows.forEach(function(r) { %>
+                            <div class="slds-col slds-size_4-of-12">
                                 <div class="tile-container">
                                     <article class="tile tile-type-trailmix" data-content-type="trailmix">
                                         <div class="tile-content">
                                             <div class="tile-header">
-                                                <a class="tile-icon" tabindex="-1" aria-hidden="true" href="/en/me/00550000006yDdKAAU">
+                                                <a class="tile-icon" tabindex="-1" aria-hidden="true" href="<%= r.liga %>">
                                                     <img alt="trailmix creator image" class="img-circle trailmix-creator-image" src="https://trailhead-web.s3.amazonaws.com/uploads/users/5396019/photos/thumb_030804d3576dab0cdc2a558055816208e421312a9d1495117d57928ef380d7f2.png?updatedAt=20180530195923">
                                                 </a>
                                                 <div class="tile-meta-content">
@@ -73,12 +74,12 @@
                                                         Trailmix
                                                     </span>
                                                     –
-                                                    <a href="/en/me/00550000006yDdKAAU">Salesforce Trailhead</a>
+                                                    <a href="<%= r.liga %>">Salesforce Trailhead</a>
                                                 </div>
                                                 <h3>
-                                                    <a title="Mint Chip - Content Release" class="tile-title" href="/users/00550000006yDdKAAU/trailmixes/mint-chip-content-release">Mint Chip - Content Release</a>
+                                                    <a title="Mint Chip - Content Release" class="tile-title" href="<%= r.liga %>"><%= r.nombre %></a>
                                                 </h3>
-                                                <div class="tile-description">Get the scoop on the latest Trailhead badges! Released May 21st, 2018</div>
+                                                <div class="tile-description"><%= r.nube %></div>
                                                 <ul class="tile-actions">
                                                 </ul>
                                                 <ul class="tile-tags">
@@ -88,7 +89,8 @@
                                     </article>
 
                                 </div>
-                                <% }); %>
+                            </div>
+                            <% }); %>
 </div>
 </div>
                         </div>

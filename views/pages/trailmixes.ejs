@@ -28,9 +28,11 @@
                 <!-- Header de trailmix-->
                 <div class="tiles-container">
                     <div class="trailmix-section-header">
-                        <div class="trailhead-section-title">Featured trailmixes (<% results.rowCount %>)</div>
-                        <a class="slds-button th-button th-button--primary-inverse slds-m-right_medium th-button--medium" href="/en/trailmixes?filter=recommended_for_you">Show All</a>
+
                     </div>
+<div class="slds-wrap">
+<div class="slds-grid slds-wrap">
+
                     <% results.rows.forEach(function(r) { %>
                         <div class="tile-container">
                             <article class="tile tile-type-trailmix" data-content-type="trailmix">
@@ -68,6 +70,8 @@
 
                         </div>
                     <% }); %>
+</div>
+</div>
                 </div>
             </div>
             <div class="slds-brand-band slds-brand-band_medium">
