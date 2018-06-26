@@ -50,7 +50,7 @@ express()
   .get('/microdemos', async (req, res) => {
     try {
       const client = await pool.connect()
-      const results = await client.query('SELECT * FROM microdemos');
+      const results = await client.query('SELECT * FROM microdemos order by id asc');
       console.error(results);
       res.render('pages/microdemos', {results : results});
       client.release();
@@ -62,7 +62,7 @@ express()
   .get('/webinars', async (req, res) => {
     try {
       const client = await pool.connect()
-      const results = await client.query('SELECT * FROM webinars');
+      const results = await client.query('SELECT * FROM webinars order by id asc');
       console.error(results);
       res.render('pages/webinars', {results : results});
       client.release();

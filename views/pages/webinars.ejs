@@ -1,107 +1,83 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <% include ../partials/header.ejs %>
-</head>
+    <head>
+        <% include ../partials/header.ejs %>
+    </head>
 
-<body>
+    <body>
 
-    <% include ../partials/nav.ejs %>
+        <% include ../partials/nav.ejs %>
 
         <main class="home">
-            <div class="th-hero th-hero--zion" style="height: 200px;">
+            <div class="th-hero th-hero--zion">
                 <div class="hero-content slds-text-align_center">
-                    <h1 class="th-hero__heading">¡Webinars!</h1>
+                    <h1 class="th-hero__heading th-hero__heading--signed-out">Welcome to Webinars!</h1>
+                    <div class="th-hero__sub-heading">the fun way to learn Salesforce</div>
                 </div>
             </div>
-            <br />
-            <div class="th-careers">
-                <div class="trailmix-hero">
-                    <div class="trailmix-hero__content">
-                        <h1 class="th-text th-text--x-large th-text--bold slds-text-align_center slds-m-vertical_x-small">
-                            Webinars
-                        </h1>
-                        <p class="th-text th-text--default slds-m-top_x-small slds-m-bottom_large th-color--ice th-max-width--large slds-text-align_center">
-                            Webinars are custom learning paths you create from your favorite trails, modules, projects, and superbadges. Share them
-                            to guide your fellow Trailblazers!
-                        </p>
-                        <div>
-                            <div data-react-class="auth/buttons/LoginModalBtn" data-react-props="{&quot;loginProps&quot;:{&quot;assets&quot;:{&quot;trailhead_logo_url&quot;:&quot;https://trailhead.salesforce.com/assets/trailhead-logo-d08befd2d122442532289967a988aa7a49eef27154969718441fbde0bd122fe8.svg&quot;},&quot;providers&quot;:{&quot;salesforce&quot;:{&quot;url&quot;:&quot;/en/sessions/users/new?type=trailheadlogin&quot;,&quot;provider&quot;:&quot;salesforce&quot;,&quot;analytics_key&quot;:&quot;Salesforce&quot;,&quot;label&quot;:&quot;layout.sign_in.with_salesforce&quot;},&quot;facebook&quot;:{&quot;url&quot;:&quot;/en/sessions/users/new?type=facebooksso&quot;,&quot;provider&quot;:&quot;facebook&quot;,&quot;analytics_key&quot;:&quot;Facebook&quot;,&quot;label&quot;:&quot;layout.sign_in.with_facebook&quot;},&quot;google&quot;:{&quot;url&quot;:&quot;/en/sessions/users/new?type=googlesso&quot;,&quot;provider&quot;:&quot;google&quot;,&quot;analytics_key&quot;:&quot;Google&quot;,&quot;label&quot;:&quot;layout.sign_in.with_google_plus&quot;},&quot;linkedin&quot;:{&quot;url&quot;:&quot;/en/sessions/users/new?type=linkedinsso&quot;,&quot;provider&quot;:&quot;linkedin&quot;,&quot;analytics_key&quot;:&quot;LinkedIn&quot;,&quot;label&quot;:&quot;layout.sign_in.with_linkedin&quot;}}},&quot;labelText&quot;:&quot;Create a trailmix&quot;,&quot;buttonClasses&quot;:&quot;slds-button th-button th-button--primary&quot;}">
-                                <span data-reactroot="">
-                                    <!--<button class="slds-button th-button th-button--primary" data-test="header-login">Create a trailmix</button>
-                                     react-empty: 3 -->
-                                </span>
-                            </div>
+            <div class="content">
+                <div class="content-container">
+                    <div class="grid-tiles">
+                        <div class="slds-text-align_center">
+                            <h3 class="th-text--x-large th-text--nexa-rust th-color--navy slds-m-top_xx-large slds-m-bottom_medium">
+                                Blaze your trail
+                            </h3>
+                            <p class="th-color--navy th-text--medium">
+                                Trails are guided learning paths that chart your course through Salesforce skills.
+                            </p>
                         </div>
-                    </div>
-                    <div class="trailmix-hero__nav">
-                        <ul class="nav nav-tabs" id="trailmix-tabs">
-                            <li class="active">
-                                <a href="/en/trailmixes">Discover Trailmixes</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="leading-padd-m trailing-padd-m">
-                    <div class="container">
-                        <div class="tiles-container">
-                            <div class="trailmix-section-header">
-
-                            </div>
-<div class="slds-wrap">
-<div class="slds-grid slds-wrap">
-
+                        <div class="tile-grid tiles-container">
                             <% results.rows.forEach(function(r) { %>
-                            <div class="slds-col slds-size_4-of-12">
+
                                 <div class="tile-container">
-                                    <article class="tile tile-type-trailmix" data-content-type="trailmix">
+                                    <article class="tile tile-type-trail" data-api-name="learn-privacy-and-data-protection-law" data-content-type="trail">
                                         <div class="tile-content">
-                                            <div class="tile-header">
-                                                <a class="tile-icon" tabindex="-1" aria-hidden="true" href="<%= r.liga %>">
-                                                    <img alt="trailmix creator image" class="img-circle trailmix-creator-image" src="https://trailhead-web.s3.amazonaws.com/uploads/users/5396019/photos/thumb_030804d3576dab0cdc2a558055816208e421312a9d1495117d57928ef380d7f2.png?updatedAt=20180530195923">
-                                                </a>
+                                            <div class="tile-header" style="background-color: #3E7F8E">
+                                                <a title=" Learn Privacy and Data Protection Law" class="tile-icon" tabindex="-1" aria-hidden="true" href="<%= r.liga %>"><img alt=" Learn Privacy and Data Protection Law icon" class="tile-icon-image" src="https://developer.salesforce.com/resource/images/trailhead/trails/trailhead_trail_learn_privacy_and_data_protection_law.png"></a>
                                                 <div class="tile-meta-content">
                                                     <div class="progress-text">
-                                                        <%= r.id %> -
-                                                            <%= r.nombre %>
+                                                        <%= r.estatus %>
+                                                    </div>
+                                                    <div class="progress-text">
+                                                        <%= r.fechatexto %>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tile-body">
                                                 <div>
                                                     <span class="tile-type">
-                                                        Trailmix
+                                                        Webinar
                                                     </span>
-                                                    –
-                                                    <a href="<%= r.liga %>">Salesforce Trailhead</a>
                                                 </div>
-                                                <h3>
-                                                    <a title="Mint Chip - Content Release" class="tile-title" href="<%= r.liga %>"><%= r.nombre %></a>
-                                                </h3>
-                                                <div class="tile-description"><%= r.nube %></div>
-                                                <ul class="tile-actions">
-                                                </ul>
+                                                <h3><a title=" Learn Privacy and Data Protection Law" class="tile-title" href="<%= r.liga %>">
+                                                    <%= r.nombre %>
+                                                </a></h3>
+                                                <div class="tile-description">
+                                                    <%= r.descripcioncorta %>
+                                                </div>
                                                 <ul class="tile-tags">
+                                                    <li>
+                                                        <a class="tag" data-filter="role-user" data-genre="webinar" data-type="role" href="#" role="button">
+                                                            <%= r.id %>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="tag" data-filter="role-user" data-genre="webinar" data-type="role" href="#" role="button">
+                                                            <%= r.nube %>
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </article>
-
                                 </div>
-                            </div>
+
                             <% }); %>
-</div>
-</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slds-brand-band slds-brand-band_medium">
-
-            </div>
         </main>
-
-</body>
-
+    </body>
 </html>
