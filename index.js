@@ -72,18 +72,21 @@ express()
     }
   })
   .post("/newWebinar", function(req, res) {
-    var notification = req.body["soapenv:envelope"]["soapenv:body"][0]["notifications"][0];
-    var sessionId = notification["sessionid"][0];
+    console.log("req",req);
+    var notification = req.body["soapenv:Envelope"]["soapenv:Body"][0]["notifications"][0];
+    var sessionId = notification["SessionId"][0];
     var data = {};
-    if (notification["notification"] !== undefined) {
-      var sobject = notification["notification"][0]["sobject"][0];
+    if (notification["Notification"] !== undefined) {
+      var sobject = notification["Notification"][0]["sObject"][0];
       Object.keys(sobject).forEach(function(key) {
         if (key.indexOf("sf:") == 0) {
           var newKey = key.substr(3);
           data[newKey] = sobject[key][0];
         }
       }); // do something #awesome with the data and sessionId
+      console.log("sessionId",sessionId);
+      console.error("data",data);
     }
     res.status(201).end();
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, () => console.log("Listening on ${ PORT }"))
