@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "cassatrailmix",
+  "version": "1.5.0",
+  "description": "Site proposal for CaSSA Trailmixes",
   "engines": {
     "node": "8.9.1"
   },
@@ -33,7 +33,12 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "trailmix",
+    "lightning",
+    "design",
+    "system",
+    "cassa"
   ],
   "license": "MIT"
 }

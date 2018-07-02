@@ -1,4 +1,3 @@
-const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
@@ -20,39 +19,6 @@ app
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/cool', (req, res) => res.send(cool()))
-  .get('/times', (req, res) => {
-    let result = ''
-    const times = process.env.TIMES || 5
-    for (i = 0; i < times; i++) {
-      result += i + ' '
-    }
-    res.send(result)
-  })
-  .get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const results = await client.query('SELECT * FROM test_table');
-      console.error(results);
-      res.render('pages/db', {results : results});
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-  .get('/trailmixes', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const results = await client.query('SELECT * FROM trailmixes');
-      console.error(results);
-      res.render('pages/trailmixes', {results : results});
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
   .get('/microdemos', async (req, res) => {
     try {
       const client = await pool.connect();
@@ -120,7 +86,6 @@ parseRequest = function(req){
 var promise = require('bluebird');
 
 var options = {
-  // Initialization Options
   promiseLib: promise
 };
 var pgp = require('pg-promise')(options);
@@ -144,27 +109,6 @@ insertVideo = function(data){
         console.error(error);
         return (500,JSON.stringify({"Error":true,"Data":data}));
     });
-
-    /**pool.connect(function(err, client, done) {
-        var format = require('pg-format');
-        console.log(format('insert into videos(data) values($1)', data));
-        if(err) {
-            return console.error('error fetching client from pool', err);
-        }
-        //client.query('insert into videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) values($1)',
-        client.query('insert into videos(data) values($1)',
-                [data],
-                function(err,result) {
-                    done();
-                    if (err) {
-                        console.log("error inserting Video");
-                        console.error(err);
-                        return (500,JSON.stringify({"Error":true}));
-                    }
-                    console.log("added video");
-                    return(result);
-                });
-    });**/
 };
 
 updateVideo = function(data){
