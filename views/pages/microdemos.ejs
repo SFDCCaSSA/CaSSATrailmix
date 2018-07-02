@@ -31,40 +31,40 @@
                             <% results.rows.forEach(function(r) { %>
 
                                 <div class="tile-container">
-                                    <article class="tile tile-type-trail" data-api-name="learn-privacy-and-data-protection-law" data-content-type="trail">
+                                    <article class="tile tile-type-trail" data-api-name="learn-privacy-and-data-protection-law" data-content-type="<%= r.tipo__c %>">
                                         <div class="tile-content">
                                             <div class="tile-header" style="background-color: #DB350F">
-                                                <a title="<%= r.nombre %>" class="tile-icon" tabindex="-1" aria-hidden="true" href="<%= r.liga %>"><img alt="<%= r.nombre %>" class="tile-icon-image" src="https://developer.salesforce.com/resource/images/trailhead/trails/trailhead_trail_admin_advanced.png"></a>
+                                                <a title="<%= r.name %>" class="tile-icon" tabindex="-1" aria-hidden="true" href="<%= r.liga__c %>"><img alt="<%= r.name %>" class="tile-icon-image" src="https://developer.salesforce.com/resource/images/trailhead/trails/trailhead_trail_admin_advanced.png"></a>
                                                 <div class="tile-meta-content">
                                                     <div class="progress-text">
-                                                        <%= r.estatus %>
+                                                        <%= r.estatus__c %>
                                                     </div>
                                                     <div class="progress-text">
-                                                        <%= r.fechatexto %>
+                                                        <%= r.fecha__c %>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tile-body">
                                                 <div>
                                                     <span class="tile-type">
-                                                        Microdemo
+                                                        <%= r.tipo__c %>
                                                     </span>
                                                 </div>
-                                                <h3><a title=" Learn Privacy and Data Protection Law" class="tile-title" href="<%= r.liga %>">
-                                                    <%= r.nombre %>
+                                                <h3><a title="<%= r.name %>" class="tile-title" href="<%= r.liga__c %>">
+                                                    <%= r.name %>
                                                 </a></h3>
                                                 <div class="tile-description">
-                                                    <%= r.descripcioncorta %>
+                                                    <%= r.descripcioncorta__c %>
                                                 </div>
                                                 <ul class="tile-tags">
                                                     <li>
-                                                        <a class="tag" data-filter="role-user" data-genre="Microdemo" data-type="role" href="#" role="button">
+                                                        <a class="tag" data-filter="role-user" data-genre="<%= r.tipo__c %>" data-type="role" href="#" role="button">
                                                             <%= r.id %>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="tag" data-filter="role-user" data-genre="Microdemo" data-type="role" href="#" role="button">
-                                                            <%= r.nube %>
+                                                        <a class="tag" data-filter="role-user" data-genre="<%= r.tipo__c %>" data-type="role" href="#" role="button">
+                                                            <%= r.nube__c %>
                                                         </a>
                                                     </li>
                                                 </ul>

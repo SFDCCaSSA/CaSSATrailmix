@@ -55,8 +55,9 @@ app
   })
   .get('/microdemos', async (req, res) => {
     try {
-      const client = await pool.connect()
-      const results = await client.query('SELECT * FROM microdemos order by nube, id asc');
+      const client = await pool.connect();
+      //const results = await client.query('SELECT * FROM microdemos order by nube, id asc');
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' order by nube__c, id asc");
       console.error(results);
       res.render('pages/microdemos', {results : results});
       client.release();
@@ -67,8 +68,9 @@ app
   })
   .get('/webinars', async (req, res) => {
     try {
-      const client = await pool.connect()
-      const results = await client.query('SELECT * FROM webinars order by nube, id asc');
+      const client = await pool.connect();
+      //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' order by nube__c, id asc");
       console.error(results);
       res.render('pages/webinars', {results : results});
       client.release();
@@ -78,47 +80,42 @@ app
     }
   })
   .post("/newWebinar", function(req, res) {
-    //console.log("req.body",req.body);
-    var notification = req.body["soapenv:Envelope"]["soapenv:Body"][0]["notifications"][0];
-    var sessionId = notification["SessionId"][0];
-    var data = {};
-    if (notification["Notification"] !== undefined) {
-      var sobject = notification["Notification"][0]["sObject"][0];
-      Object.keys(sobject).forEach(function(key) {
-        if (key.indexOf("sf:") == 0) {
-          var newKey = key.substr(3);
-          data[newKey] = sobject[key][0];
-        }
-      }); // do something #awesome with the data and sessionId
-      //console.log("sessionId",sessionId);
-      //console.error("data",data);
-      insertVideo(data);
-      
+    var datas = parseRequest(req);
+    for(let i=0 ; i < datas.length ; i++){
+      insertVideo(datas[i]);
     }
     res.status(201).end();
   })
   .post("/updWebinar", function(req, res) {
-    console.log("req.body",req.body);
-    var notification = req.body["soapenv:Envelope"]["soapenv:Body"][0]["notifications"][0];
-    var sessionId = notification["SessionId"][0];
-    var data = {};
-    if (notification["Notification"] !== undefined) {
-      var sobject = notification["Notification"][0]["sObject"][0];
-      Object.keys(sobject).forEach(function(key) {
-        if (key.indexOf("sf:") == 0) {
-          var newKey = key.substr(3);
-          data[newKey] = sobject[key][0];
-        }
-      }); // do something #awesome with the data and sessionId
-      //console.log("sessionId",sessionId);
-      //console.error("data",data);
-      updateVideo(data);
-      
+    var datas = parseRequest(req);
+    for(let i=0 ; i < datas.length ; i++){
+      updateVideo(datas[i]);
     }
     res.status(201).end();
   })
   .listen(PORT, () => console.log("Listening on ${ PORT }"));
 
+
+parseRequest = function(req){
+    var regs = [];
+    console.log("req.body",JSON.stringify(req.body));
+    var notification = req.body["soapenv:Envelope"]["soapenv:Body"][0]["notifications"][0];
+    var sessionId = notification["SessionId"][0];
+    if (notification["Notification"] !== undefined) {
+      for (let i = 0; i < notification["Notification"].length; i++) {
+        var data = {};
+        var sobject = notification["Notification"][i]["sObject"][0];
+        Object.keys(sobject).forEach(function(key) {
+          if (key.indexOf("sf:") == 0) {
+            var newKey = key.substr(3);
+            data[newKey] = sobject[key][0];
+          }
+        }); 
+        regs.push(data);
+      }
+    }
+    return regs;
+};
 
 var promise = require('bluebird');
 
@@ -133,21 +130,20 @@ var db = pgp(connectionString);
 insertVideo = function(data){
     console.log("data param: " + JSON.stringify(data));
     var dataString = JSON.stringify(data);
-
-    db.none('INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES(${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c})', data)
-    .then(() => {
-        // success;
-        console.log('success');
+    db.tx(t => {
+      const q1 = t.none('INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES(${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c})', data);
+      return t.batch([q1]); // all of the queries are to be resolved;
+    })
+    .then(data => {
+        // success, COMMIT was executed
+        console.log('success insertVideo');
     })
     .catch(error => {
-        console.log('ERROR:', error);
-        console.log("error inserting Video");
+        console.error('ERROR:', error);
+        console.error("error inserting Video");
         console.error(error);
-        return (500,JSON.stringify({"Error":true}));
+        return (500,JSON.stringify({"Error":true,"Data":data}));
     });
-
-
-
 
     /**pool.connect(function(err, client, done) {
         var format = require('pg-format');
@@ -178,13 +174,13 @@ updateVideo = function(data){
   })
     .then(data => {
         // success, COMMIT was executed
-        console.log('success');
+        console.log('success updateVideo');
     })
     .catch(error => {
-        console.log('ERROR:', error);
-        console.log("error inserting Video");
+        console.error('ERROR:', error);
+        console.error("error updating Video");
         console.error(error);
-        return (500,JSON.stringify({"Error":true}));
+        return (500,JSON.stringify({"Error":true,"Data":data}));
     });
 };
 
