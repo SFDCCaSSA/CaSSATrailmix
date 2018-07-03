@@ -23,7 +23,7 @@ app
     try {
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM microdemos order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' and estatus__c='Activo' order by nube__c, id asc");
       console.error(results);
       res.render('pages/microdemos', {results : results});
       client.release();
@@ -36,7 +36,7 @@ app
     try {
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' and estatus__c='Activo' order by nube__c, id asc");
       console.error(results);
       res.render('pages/webinars', {results : results});
       client.release();
