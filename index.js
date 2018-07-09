@@ -265,10 +265,10 @@ generaFiltros = function(results){
 
   for (var j = 0; j < results.rows.length; j++) {
     var fila = results.rows[j];
-    var roles = fila.rol__c.split(";");
+    var roles = fila.rol__c==null?"":fila.rol__c.split(";");
     //var niveles = fila.nivel__c.split(";");
-    var nubes = fila.nube__c.split(";");
-    var tags = fila.tags__c.split(";");
+    var nubes = fila.nube__c==null?"":fila.nube__c.split(";");
+    var tags = fila.tags__c==null?"":fila.tags__c.split(";");
     console.log("tags",tags);
     fila.filtros = "";
     for (var i = 0; i < roles.length; i++) {
