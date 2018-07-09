@@ -34,5 +34,78 @@
                 </div>
             </div>
         </main>
+
+        <main class="th-bg--light">
+                <div class="content-container">
+                    <h2 class="trailhead-section-title hidden">
+                        Showing <span class="trailhead-active-items">102</span> trails out of <span class="trailhead-total-items"><%= results.rowCount %></span>
+                    </h2>
+                    <h2 class="trailhead-section-title hidden">
+                        No results matched the selected criteria
+                    </h2>
+                    <div class="tiles-filterable tiles-container">
+
+                            <% results.rows.forEach(function(r) { %>
+
+                                <div class="<%= r.filtros %> tile-container">
+                                    <article class="tile tile-type-trail" data-api-name="<%= r.cardheadericon__c %>" data-content-type="<%= r.tipo__c %>">
+                                        <div class="tile-content">
+                                            <div class="tile-header" style="background-color: <%= r.cardheaderbgcolor__c %>">
+                                                <a title="<%= r.name %>" class="tile-icon" tabindex="-1" aria-hidden="true" href="<%= r.liga__c %>">
+                                                    <img alt="<%= r.name %>" class="tile-icon-image" src="/assets/images/trails/<%= r.cardheadericon__c %>">
+                                                </a>
+                                                <div class="tile-meta-content">
+                                                    <!--div class="progress-text">
+                                                        <%= r.estatus__c %>
+                                                    </div-->
+                                                    <div class="progress-text">
+                                                        <%= r.fecha__c %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tile-body">
+                                                <div>
+                                                    <span class="tile-type">
+                                                        <%= r.tipo__c %>
+                                                    </span>
+                                                </div>
+                                                <h3><a title="<%= r.name %>" class="tile-title" href="<%= r.liga__c %>">
+                                                    <%= r.name %>
+                                                </a></h3>
+                                                <div class="tile-description">
+                                                    <%= r.descripcioncorta__c %>
+                                                </div>
+                                                <ul class="tile-tags">
+                                                    <% r.rol__c.split(";").forEach(function(r) { %>
+                                                    <li data-id="<%= r.id %>">
+                                                        <a class="tag" data-filter="rol-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="rol" href="#" role="button">
+                                                            <%= r %>
+                                                        </a>
+                                                    </li>
+                                                    <% }); %>
+                                                    <% r.tags__c.split(";").forEach(function(r) { %>
+                                                    <li data-id="<%= r.id %>">
+                                                        <a class="tag" data-filter="tag-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="tag" href="#" role="button">
+                                                            <%= r %>
+                                                        </a>
+                                                    </li>
+                                                    <% }); %>
+                                                    <% r.nube__c.split(";").forEach(function(r) { %>
+                                                    <li data-id="<%= r.id %>">
+                                                        <a class="tag" data-filter="nube-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="nube" href="#" role="button">
+                                                            <%= r %>
+                                                        </a>
+                                                    </li>
+                                                    <% }); %>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            <% }); %>
+                    </div>
+                </div>
+        </main>
     </body>
 </html>
