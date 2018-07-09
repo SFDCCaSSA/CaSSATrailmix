@@ -128,7 +128,7 @@ upsertVideo = function(data){
     var dataString = JSON.stringify(data);
     db.tx(t => {
       const q1 = t.none(
-        'INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES (${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c}) ON CONFLICT (id) DO UPDATE SET (descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) = (${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c}) WHERE videos.id = ${Id}'
+        'INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c,rol__c,tags__c,cardheaderbgcolor__c,cardheadericon__c,impartidopor__c) VALUES (${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c},${Rol__c},${Tags__c},${CardHeaderBgColor__c},${CardHeaderIcon__c},${ImpartidoPor__c}) ON CONFLICT (id) DO UPDATE SET (descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c,rol__c,tags__c,cardheaderbgcolor__c,cardheadericon__c,impartidopor__c) = (${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c},${Rol__c},${Tags__c},${CardHeaderBgColor__c},${CardHeaderIcon__c},${ImpartidoPor__c}) WHERE videos.id = ${Id}'
         , data
       );
       return t.batch([q1]); // all of the queries are to be resolved;
