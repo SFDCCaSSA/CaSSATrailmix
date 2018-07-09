@@ -148,27 +148,27 @@
                                                     <%= r.descripcioncorta__c %>
                                                 </div>
                                                 <ul class="tile-tags">
-                                                    <% r.rol__c.split(";").forEach(function(r) { %>
+                                                    <% if(r.rol__c!=null){ r.rol__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
                                                         <a class="tag" data-filter="rol-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="rol" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
-                                                    <% }); %>
-                                                    <% r.tags__c.split(";").forEach(function(r) { %>
+                                                    <% }); } %>
+                                                    <% if(r.rol__c!=null){ r.tags__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
                                                         <a class="tag" data-filter="tag-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="tag" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
-                                                    <% }); %>
-                                                    <% r.nube__c.split(";").forEach(function(r) { %>
+                                                    <% }); } %>
+                                                    <% if(r.rol__c!=null){ r.nube__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
                                                         <a class="tag" data-filter="nube-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="nube" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
-                                                    <% }); %>
+                                                    <% }); } %>
                                                 </ul>
                                             </div>
                                         </div>
