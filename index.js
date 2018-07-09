@@ -127,8 +127,59 @@ upsertVideo = function(data){
     console.log("data param: " + JSON.stringify(data));
     var dataString = JSON.stringify(data);
     db.tx(t => {
+      var campos = "";
+      var valores = "";
+      
+      if(data.Name === undefined){
+        campos += ",name";
+        valores += ",${Name}";
+      }
+      if(data.DescripcionCorta__c === undefined){
+        campos += ",descripcioncorta__c";
+        valores += ",${DescripcionCorta__c}";
+      }
+      if(data.Estatus__c === undefined){
+        campos += ",estatus__c";
+        valores += ",${Estatus__c}";
+      }
+      if(data.Fecha__c === undefined){
+        campos += ",fecha__c";
+        valores += ",${Fecha__c}";
+      }
+      if(data.Liga__c === undefined){
+        campos += ",liga__c";
+        valores += ",${Liga__c}";
+      }
+      if(data.Nube__c === undefined){
+        campos += ",nube__c";
+        valores += ",${Nube__c}";
+      }
+      if(data.Tipo__c === undefined){
+        campos += ",tipo__c";
+        valores += ",${Tipo__c}";
+      }
+      if(data.Rol__c === undefined){
+        campos += ",rol__c";
+        valores += ",${Rol__c}";
+      }
+      if(data.Tags__c === undefined){
+        campos += ",tags__c";
+        valores += ",${Tags__c}";
+      }
+      if(data.CardHeaderBgColor__c === undefined){
+        campos += ",cardheaderbgcolor__c";
+        valores += ",${CardHeaderBgColor__c}";
+      }
+      if(data.CardHeaderIcon__c === undefined){
+        campos += ",cardheadericon__c";
+        valores += ",${CardHeaderIcon__c}";
+      }
+      if(data.ImpartidoPor__c === undefined){
+        campos += ",impartidopor__c";
+        valores += ",${ImpartidoPor__c}";
+      }
       const q1 = t.none(
-        'INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c,rol__c,tags__c,cardheaderbgcolor__c,cardheadericon__c,impartidopor__c) VALUES (${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c},${Rol__c},${Tags__c},${CardHeaderBgColor__c},${CardHeaderIcon__c},${ImpartidoPor__c}) ON CONFLICT (id) DO UPDATE SET (descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c,rol__c,tags__c,cardheaderbgcolor__c,cardheadericon__c,impartidopor__c) = (${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c},${Rol__c},${Tags__c},${CardHeaderBgColor__c},${CardHeaderIcon__c},${ImpartidoPor__c}) WHERE videos.id = ${Id}'
+        "INSERT INTO videos(id" + campos + ") VALUES (${Id}" + valores + ") ON CONFLICT (id) DO UPDATE SET (" + campos + ") = (" + valores + ") WHERE videos.id = ${Id}"
         , data
       );
       return t.batch([q1]); // all of the queries are to be resolved;
