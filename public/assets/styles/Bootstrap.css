@@ -6831,8 +6831,8 @@ form input, form textarea {
 
 @font-face {
 	font-family: SalesforceSans;
-	src: url(/assets/SalesforceSans-Bold-4c773563a97d731154c2965741e5705d6bdd3ce136851371fe4fad714a187669.eot);
-	src: url(/assets/SalesforceSans-Bold-4c773563a97d731154c2965741e5705d6bdd3ce136851371fe4fad714a187669.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Bold-772dcaf2940255be4ba35180a1b48717399fc025aa9c3997062d4feabb57da23.woff) format("woff"), url(/SalesforceSans-Bold.ttf) format("truetype"), url(/assets/SalesforceSans-Bold-4595400371115f80bc04d188962025d3a1297ecd9716768b01b443b0f05da9a9.svg#SalesforceSans) format("svg");
+	src: url(/assets/fonts/SalesforceSans-Bold.eot);
+	src: url(/assets/fonts/SalesforceSans-Bold.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/SalesforceSans-Bold.woff) format("woff"), url(/fonts/SalesforceSans-Bold.ttf) format("truetype"), url(/assets/fonts/SalesforceSans-Bold.svg#SalesforceSans) format("svg");
 	font-weight: bold;
 	font-style: normal
 }
@@ -6848,7 +6848,7 @@ form input, form textarea {
 @font-face {
 	font-family: SalesforceSans;
 	src: url(/assets/SalesforceSans-BoldItalic-e2ae66088523f46919f059ffc637750a706573ff2bab4a5baf53f0750709fdc0.eot);
-	src: url(/assets/SalesforceSans-BoldItalic-e2ae66088523f46919f059ffc637750a706573ff2bab4a5baf53f0750709fdc0.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-BoldItalic-13928913286d20f56861df6eac02e4910429cda0e50af5d97eb782ab49ae8ec6.woff) format("woff"), url(/SalesforceSans-BoldItalic.ttf) format("truetype"), url(/assets/SalesforceSans-BoldItalic-fdc53069e97793c96489dceb6a375371fecdf5154e3b7c10c59bc7312955b904.svg#SalesforceSans) format("svg");
+	src: url(/assets/SalesforceSans-BoldItalic-e2ae66088523f46919f059ffc637750a706573ff2bab4a5baf53f0750709fdc0.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/SalesforceSans-BoldItalic.woff) format("woff"), url(/fonts/SalesforceSans-BoldItalic.ttf) format("truetype"), url(/assets/fonts/SalesforceSans-BoldItalic.svg#SalesforceSans) format("svg");
 	font-weight: bold;
 	font-style: italic
 }
@@ -6863,8 +6863,8 @@ form input, form textarea {
 
 @font-face {
 	font-family: SalesforceSans;
-	src: url(/assets/SalesforceSans-Italic-696f06d09d7fa926eb5469803a85739eafab2058b8ba85ed47f28e77be23d6c3.eot);
-	src: url(/assets/SalesforceSans-Italic-696f06d09d7fa926eb5469803a85739eafab2058b8ba85ed47f28e77be23d6c3.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Italic-af9b3139d15359565f4fd9579fc06aad3b64271c1f79b5ce152c362b02cd6c46.woff) format("woff"), url(/SalesforceSans-Italic.ttf) format("truetype"), url(/assets/SalesforceSans-Italic-f94c67e4f421db6f11045ecb9ce3c406e42d0155b5f570fad40579d7d4693dfa.svg#SalesforceSans) format("svg");
+	src: url(/assets/fonts/SalesforceSans-Italic.eot);
+	src: url(/assets/fonts/SalesforceSans-Italic.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/SalesforceSans-Italic.woff) format("woff"), url(/SalesforceSans-Italic.ttf) format("truetype"), url(/assets/fonts/SalesforceSans-Italic.svg#SalesforceSans) format("svg");
 	font-weight: normal;
 	font-style: italic
 }

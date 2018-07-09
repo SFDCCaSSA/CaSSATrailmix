@@ -18,14 +18,29 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Inicio' and estatus__c='Activo' order by nube__c, id asc");
+      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Inicio' limit 1");
+      //console.error(results);
+      console.error(configPage);
+      res.render('pages/index', {results : results, "configPage" : configPage.rows[0], filtros : generaFiltros(results)});
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
   .get('/microdemos', async (req, res) => {
     try {
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM microdemos order by nube, id asc');
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' and estatus__c='Activo' order by nube__c, id asc");
-      console.error(results);
-      res.render('pages/microdemos', {results : results});
+      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Microdemo' limit 1");
+      //console.error(results);
+      console.error(configPage);
+      res.render('pages/vistaVideo', {results : results, "configPage" : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
       console.error(err);
@@ -37,8 +52,10 @@ app
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' and estatus__c='Activo' order by nube__c, id asc");
-      console.error(results);
-      res.render('pages/webinars', {results : results});
+      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Webinar' limit 1");
+      //console.error(results);
+      console.error(configPage);
+      res.render('pages/vistaVideo', {results : results, configPage : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
       console.error(err);
@@ -59,7 +76,21 @@ app
     }
     res.status(201).end();
   })
-  .listen(PORT, () => console.log("Listening on ${ PORT }"));
+  .post("/upsertVideo", function(req, res) {
+    var datas = parseRequest(req);
+    for(let i=0 ; i < datas.length ; i++){
+      upsertVideo(datas[i]);
+    }
+    res.status(201).end();
+  })
+  .post("/upsertConfigPortal", function(req, res) {
+    var datas = parseRequest(req);
+    for(let i=0 ; i < datas.length ; i++){
+      upsertCP(datas[i]);
+    }
+    res.status(201).end();
+  })
+  .listen(PORT, () => console.log("Listening on ${PORT}",PORT));
 
 
 parseRequest = function(req){
@@ -92,11 +123,58 @@ var pgp = require('pg-promise')(options);
 var connectionString = process.env.DATABASE_URL;
 var db = pgp(connectionString);
 
+upsertVideo = function(data){
+    console.log("data param: " + JSON.stringify(data));
+    var dataString = JSON.stringify(data);
+    db.tx(t => {
+      const q1 = t.none(
+        'INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES (${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c}) ON CONFLICT (id) DO UPDATE SET (descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) = (${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c}) WHERE videos.id = ${Id}'
+        , data
+      );
+      return t.batch([q1]); // all of the queries are to be resolved;
+    })
+    .then(data => {
+        // success, COMMIT was executed
+        console.log('success upsertVideo');
+    })
+    .catch(error => {
+        console.error('ERROR:', error);
+        console.error("error upsertVideo Video");
+        console.error(error);
+        return (500,JSON.stringify({"Error":true,"Data":data}));
+    });
+};
+
+upsertCP = function(data){
+    console.log("data param: " + JSON.stringify(data));
+    var dataString = JSON.stringify(data);
+    db.tx(t => {
+      const q1 = t.none(
+        'INSERT INTO configportal(id,name,titulo__c,subtitulo__c) VALUES (${Id},${Name},${Titulo__c},${Subtitulo__c}) ON CONFLICT (id) DO UPDATE SET (name,titulo__c,subtitulo__c) = (${Name},${Titulo__c},${Subtitulo__c}) WHERE configportal.id = ${Id}'
+        , data
+      );
+      return t.batch([q1]); // all of the queries are to be resolved;
+    })
+    .then(data => {
+        // success, COMMIT was executed
+        console.log('success upsert Configportal');
+    })
+    .catch(error => {
+        console.error('ERROR:', error);
+        console.error("error upsert Configportal");
+        console.error(error);
+        return (500,JSON.stringify({"Error":true,"Data":data}));
+    });
+};
+
 insertVideo = function(data){
     console.log("data param: " + JSON.stringify(data));
     var dataString = JSON.stringify(data);
     db.tx(t => {
-      const q1 = t.none('INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES(${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c})', data);
+      const q1 = t.none(
+        'INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES (${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c})'
+        , data
+      );
       return t.batch([q1]); // all of the queries are to be resolved;
     })
     .then(data => {
@@ -128,3 +206,44 @@ updateVideo = function(data){
     });
 };
 
+generaFiltros = function(results){
+  var filtros = {"roles":[],"niveles":[],"nubes":[],"tags":[]};
+
+  for (var j = 0; j < results.rows.length; j++) {
+    var fila = results.rows[j];
+    var roles = fila.rol__c.split(";");
+    //var niveles = fila.nivel__c.split(";");
+    var nubes = fila.nube__c.split(";");
+    var tags = fila.tags__c.split(";");
+    console.log("tags",tags);
+    fila.filtros = "";
+    for (var i = 0; i < roles.length; i++) {
+      filtros.roles.push(roles[i]);
+      fila.filtros += " filter-rol-" + roles[i].replace(' ', '-');
+    }
+    //for (var i = 0; i < niveles.length; i++) {
+      //filtros.niveles.push(niveles[i]);
+      //fila.filtros += " filter-nivel-" + niveles[i].replace(' ', '-');
+    //}
+    for (var i = 0; i < nubes.length; i++) {
+      filtros.nubes.push(nubes[i]);
+      fila.filtros += " filter-nube-" + nubes[i].replace(' ', '-');
+    }
+    for (var i = 0; i < tags.length; i++) {
+      filtros.tags.push(tags[i]);
+      fila.filtros += " filter-tag-" + tags[i].replace(' ', '-');
+    }
+  }
+  console.log(filtros);
+  filtros.roles = removeDuplicateUsingSet(filtros.roles);
+  //filtros.niveles = removeDuplicateUsingSet(filtros.niveles);
+  filtros.nubes = removeDuplicateUsingSet(filtros.nubes);
+  filtros.tags = removeDuplicateUsingSet(filtros.tags);
+  console.log(filtros);
+  return filtros;
+}
+
+function removeDuplicateUsingSet(arr){
+    let unique_array = Array.from(new Set(arr))
+    return unique_array
+}
