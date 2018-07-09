@@ -155,14 +155,14 @@
                                                         </a>
                                                     </li>
                                                     <% }); } %>
-                                                    <% if(r.rol__c!=null){ r.tags__c.split(";").forEach(function(r) { %>
+                                                    <% if(r.tags__c!=null){ r.tags__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
                                                         <a class="tag" data-filter="tag-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="tag" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
                                                     <% }); } %>
-                                                    <% if(r.rol__c!=null){ r.nube__c.split(";").forEach(function(r) { %>
+                                                    <% if(r.nube__c!=null){ r.nube__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
                                                         <a class="tag" data-filter="nube-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="nube" href="#" role="button">
                                                             <%= r %>
