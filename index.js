@@ -67,28 +67,28 @@ app
     for(let i=0 ; i < datas.length ; i++){
       insertVideo(datas[i]);
     }
-    res.status(201).end();
+    res.status(200).end();
   })
   .post("/updWebinar", function(req, res) {
     var datas = parseRequest(req);
     for(let i=0 ; i < datas.length ; i++){
       updateVideo(datas[i]);
     }
-    res.status(201).end();
+    res.status(200).end();
   })
   .post("/upsertVideo", function(req, res) {
     var datas = parseRequest(req);
     for(let i=0 ; i < datas.length ; i++){
       upsertVideo(datas[i]);
     }
-    res.status(201).end();
+    res.status(200).end();
   })
   .post("/upsertConfigPortal", function(req, res) {
     var datas = parseRequest(req);
     for(let i=0 ; i < datas.length ; i++){
       upsertCP(datas[i]);
     }
-    res.status(201).end();
+    res.status(200).end();
   })
   .listen(PORT, () => console.log("Listening on ${PORT}",PORT));
 
