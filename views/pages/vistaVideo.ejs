@@ -51,7 +51,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <!--div class="slds-col slds-size_1-of-2">
+                                    <div class="slds-col slds-size_1-of-2">
                                         <h3 class="th-text--default th-text--bold th-color--sand">
                                             Tu nivel
                                         </h3>
@@ -66,7 +66,7 @@
                                                 <% }); %>
                                             </ul>
                                         </div>
-                                    </div-->
+                                    </div>
                                 </div>
                             </div>
                             <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 th-large-size-p-horizontal--large">
@@ -74,7 +74,7 @@
                                     Productos
                                 </h3>
                                 <div class="tag-filter-list__container">
-                                    <ul class="tag-filter-list" data-filter-type="nube" style="columns: 2;">
+                                    <ul class="tag-filter-list" data-filter-type="nube" style="columns: 1;">
                                         <% filtros.nubes.forEach(function(r) { %>
                                         <li>
                                             <a class="label filter-tag" data-filter="nube-<%= r.replace(' ', '-') %>" href="#">
@@ -90,7 +90,7 @@
                                     Tags (<%= filtros.tags.length %>)
                                 </h3>
                                 <div class="tag-filter-list__container">
-                                    <ul class="tag-filter-list" data-filter-type="tag" style="columns: 2;">
+                                    <ul class="tag-filter-list" data-filter-type="tag" style="columns: 1;">
                                         <% filtros.tags.forEach(function(r) { %>
                                         <li>
                                             <a class="label filter-tag" data-filter="tag-<%= r.replace(' ', '-') %>" href="#">
