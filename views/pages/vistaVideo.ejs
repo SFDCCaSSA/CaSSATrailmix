@@ -74,7 +74,7 @@
                                     Productos
                                 </h3>
                                 <div class="tag-filter-list__container">
-                                    <ul class="tag-filter-list" data-filter-type="nube" style="columns: 1;">
+                                    <ul class="tag-filter-list" data-filter-type="nube" style="columns: 3;">
                                         <% filtros.nubes.forEach(function(r) { %>
                                         <li>
                                             <a class="label filter-tag" data-filter="nube-<%= r.replace(' ', '-') %>" href="#">
@@ -90,7 +90,7 @@
                                     Tags (<%= filtros.tags.length %>)
                                 </h3>
                                 <div class="tag-filter-list__container">
-                                    <ul class="tag-filter-list" data-filter-type="tag" style="columns: 1;">
+                                    <ul class="tag-filter-list" data-filter-type="tag" style="columns: 2;">
                                         <% filtros.tags.forEach(function(r) { %>
                                         <li>
                                             <a class="label filter-tag" data-filter="tag-<%= r.replace(' ', '-') %>" href="#">
