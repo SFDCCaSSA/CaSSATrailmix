@@ -18,6 +18,10 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+  .get('/logos', async (req, res) => {
+
+    res.render('pages/logos');
+  })
   .get('/', async (req, res) => {
     try {
       const client = await pool.connect();
