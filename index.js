@@ -62,33 +62,29 @@ app
       res.send("Error " + err);
     }
   })
-  .post("/newWebinar", function(req, res) {
-    var datas = parseRequest(req);
-    for(let i=0 ; i < datas.length ; i++){
-      insertVideo(datas[i]);
-    }
-    res.status(201).end();
-  })
-  .post("/updWebinar", function(req, res) {
-    var datas = parseRequest(req);
-    for(let i=0 ; i < datas.length ; i++){
-      updateVideo(datas[i]);
-    }
-    res.status(201).end();
-  })
   .post("/upsertVideo", function(req, res) {
     var datas = parseRequest(req);
     for(let i=0 ; i < datas.length ; i++){
       upsertVideo(datas[i]);
     }
-    res.status(201).end();
+    res.contentType('application/xml');
+    res.send(
+      '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>',
+      200
+    );
+    //res.status(201).end();
   })
   .post("/upsertConfigPortal", function(req, res) {
     var datas = parseRequest(req);
     for(let i=0 ; i < datas.length ; i++){
       upsertCP(datas[i]);
     }
-    res.status(201).end();
+    res.contentType('application/xml');
+    res.send(
+      '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>',
+      200
+    );
+    //res.status(201).end();
   })
   .listen(PORT, () => console.log("Listening on ${PORT}",PORT));
 
@@ -216,45 +212,6 @@ upsertCP = function(data){
     .catch(error => {
         console.error('ERROR:', error);
         console.error("error upsert Configportal");
-        console.error(error);
-        return (500,JSON.stringify({"Error":true,"Data":data}));
-    });
-};
-
-insertVideo = function(data){
-    console.log("data param: " + JSON.stringify(data));
-    var dataString = JSON.stringify(data);
-    db.tx(t => {
-      const q1 = t.none(
-        'INSERT INTO videos(id,descripcioncorta__c,estatus__c,fecha__c,liga__c,name,nube__c,tipo__c) VALUES (${Id},${DescripcionCorta__c},${Estatus__c},${Fecha__c},${Liga__c},${Name},${Nube__c},${Tipo__c})'
-        , data
-      );
-      return t.batch([q1]); // all of the queries are to be resolved;
-    })
-    .then(data => {
-        // success, COMMIT was executed
-        console.log('success insertVideo');
-    })
-    .catch(error => {
-        console.error('ERROR:', error);
-        console.error("error inserting Video");
-        console.error(error);
-        return (500,JSON.stringify({"Error":true,"Data":data}));
-    });
-};
-
-updateVideo = function(data){
-  db.tx(t => {
-    const q1 = t.none('UPDATE videos SET id = ${Id},descripcioncorta__c = ${DescripcionCorta__c},estatus__c = ${Estatus__c},fecha__c = ${Fecha__c},liga__c = ${Liga__c},name = ${Name},nube__c = ${Nube__c},tipo__c = ${Tipo__c} WHERE id = ${Id}', data);
-    return t.batch([q1]); // all of the queries are to be resolved;
-  })
-    .then(data => {
-        // success, COMMIT was executed
-        console.log('success updateVideo');
-    })
-    .catch(error => {
-        console.error('ERROR:', error);
-        console.error("error updating Video");
         console.error(error);
         return (500,JSON.stringify({"Error":true,"Data":data}));
     });
