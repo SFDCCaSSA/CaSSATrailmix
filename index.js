@@ -27,8 +27,8 @@ app
       const client = await pool.connect();
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Inicio' and estatus__c='Activo' order by nube__c, id asc");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Inicio' limit 1");
-      //console.error(results);
-      console.error(configPage);
+      //console.log(results);
+      //console.log(configPage);
       res.render('pages/index', {results : results, "configPage" : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
@@ -42,8 +42,8 @@ app
       //const results = await client.query('SELECT * FROM microdemos order by nube, id asc');
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' and estatus__c='Activo' order by nube__c, id asc");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Microdemo' limit 1");
-      //console.error(results);
-      console.error(configPage);
+      //console.log(results);
+      //console.log(configPage);
       res.render('pages/vistaVideo', {results : results, "configPage" : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
@@ -57,8 +57,8 @@ app
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' and estatus__c='Activo' order by nube__c, id asc");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Webinar' limit 1");
-      //console.error(results);
-      console.error(configPage);
+      //console.log(results);
+      //console.log(configPage);
       res.render('pages/vistaVideo', {results : results, configPage : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
@@ -95,7 +95,7 @@ app
 
 parseRequest = function(req){
     var regs = [];
-    console.log("req.body",JSON.stringify(req.body));
+    //console.log("req.body",JSON.stringify(req.body));
     var notification = req.body["soapenv:Envelope"]["soapenv:Body"][0]["notifications"][0];
     var sessionId = notification["SessionId"][0];
     if (notification["Notification"] !== undefined) {
