@@ -31,6 +31,16 @@
                                     Borrar filtros
                                 </a>
                             </h3>
+                            <a class="filter-toggler">
+                                <span class="slds-icon_container slds-icon-utility-chevronup" title="" style="display: inline-block;">
+                                -
+                                </span>
+
+                                <span class="slds-icon_container slds-icon-utility-chevrondown" title="" style="display: none;">
+                                +
+                                </span>
+
+                            </a>
                         </div>
                         <div class="slds-grid slds-wrap filter-groups">
                             <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
@@ -43,7 +53,7 @@
                                             <ul class="tag-filter-list" data-filter-type="rol" style="columns: 1;">
                                                 <% filtros.roles.forEach(function(r) { %>
                                                 <li>
-                                                    <a class="label filter-tag" data-filter="rol-<%= r.replace(' ', '-') %>" href="#">
+                                                    <a class="label filter-tag" data-filter="rol-<%= r.replace(/ /g , "-") %>" href="#">
                                                         <%= r %>
                                                     </a>
                                                 </li>
@@ -59,7 +69,7 @@
                                             <ul class="tag-filter-list" data-filter-type="nivel" style="columns: 1;">
                                                 <% filtros.niveles.forEach(function(r) { %>
                                                 <li>
-                                                    <a class="label filter-tag" data-filter="nivel-<%= r.replace(' ', '-') %>" href="#">
+                                                    <a class="label filter-tag" data-filter="nivel-<%= r.replace(/ /g , "-") %>" href="#">
                                                         <%= r %>
                                                     </a>
                                                 </li>
@@ -77,7 +87,7 @@
                                     <ul class="tag-filter-list" data-filter-type="nube" style="columns: 2;">
                                         <% filtros.nubes.forEach(function(r) { %>
                                         <li>
-                                            <a class="label filter-tag" data-filter="nube-<%= r.replace(' ', '-') %>" href="#">
+                                            <a class="label filter-tag" data-filter="nube-<%= r.replace(/ /g , "-") %>" href="#">
                                                 <%= r %>
                                             </a>
                                         </li>
@@ -93,7 +103,7 @@
                                     <ul class="tag-filter-list" data-filter-type="tag" style="columns: 2;">
                                         <% filtros.tags.forEach(function(r) { %>
                                         <li>
-                                            <a class="label filter-tag" data-filter="tag-<%= r.replace(' ', '-') %>" href="#">
+                                            <a class="label filter-tag" data-filter="tag-<%= r.replace(/ /g , "-") %>" href="#">
                                                 <%= r %>
                                             </a>
                                         </li>
@@ -150,21 +160,21 @@
                                                 <ul class="tile-tags">
                                                     <% if(r.rol__c!=null){ r.rol__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
-                                                        <a class="tag" data-filter="rol-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="rol" href="#" role="button">
+                                                        <a class="tag" data-filter="rol-<%= r.replace(/ /g , "-") %>" data-genre="<%= r.tipo__c %>" data-type="rol" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
                                                     <% }); } %>
                                                     <% if(r.tags__c!=null){ r.tags__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
-                                                        <a class="tag" data-filter="tag-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="tag" href="#" role="button">
+                                                        <a class="tag" data-filter="tag-<%= r.replace(/ /g , "-") %>" data-genre="<%= r.tipo__c %>" data-type="tag" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
                                                     <% }); } %>
                                                     <% if(r.nube__c!=null){ r.nube__c.split(";").forEach(function(r) { %>
                                                     <li data-id="<%= r.id %>">
-                                                        <a class="tag" data-filter="nube-<%= r.replace(' ', '-') %>" data-genre="<%= r.tipo__c %>" data-type="nube" href="#" role="button">
+                                                        <a class="tag" data-filter="nube-<%= r.replace(/ /g , "-") %>" data-genre="<%= r.tipo__c %>" data-type="nube" href="#" role="button">
                                                             <%= r %>
                                                         </a>
                                                     </li>
@@ -182,9 +192,16 @@
         <script type="text/javascript">
             $j(document).ready(function(){
                 $j(".filter-tag").click(function() {
-                    console.log($j( this ));
                     $j(this).toggleClass("filter-tag-active");
                     filtrarVideos();
+                });
+
+                $j(".slds-icon_container").click(function() {
+                    console.log($j(this));
+                    $j(".slds-icon_container").show();
+                    $j(this).hide();
+                    $j(".filter-groups").toggleClass("hidden");
+                    $j(".clear-filter").toggleClass("hidden");
                 });
             });
 

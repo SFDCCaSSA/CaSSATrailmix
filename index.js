@@ -234,19 +234,19 @@ generaFiltros = function(results){
     fila.filtros = "";
     for (var i = 0; i < roles.length; i++) {
       filtros.roles.push(roles[i]);
-      fila.filtros += " filter-rol-" + roles[i].replace(' ', '-');
+      fila.filtros += " filter-rol-" + roles[i].replace(/ /g , "-");
     }
     //for (var i = 0; i < niveles.length; i++) {
       //filtros.niveles.push(niveles[i]);
-      //fila.filtros += " filter-nivel-" + niveles[i].replace(' ', '-');
+      //fila.filtros += " filter-nivel-" + niveles[i].replace(/ /g , "-");
     //}
     for (var i = 0; i < nubes.length; i++) {
       filtros.nubes.push(nubes[i]);
-      fila.filtros += " filter-nube-" + nubes[i].replace(' ', '-');
+      fila.filtros += " filter-nube-" + nubes[i].replace(/ /g , "-");
     }
     for (var i = 0; i < tags.length; i++) {
       filtros.tags.push(tags[i]);
-      fila.filtros += " filter-tag-" + tags[i].replace(' ', '-');
+      fila.filtros += " filter-tag-" + tags[i].replace(/ /g , "-");
     }
   }
   console.log(filtros);
