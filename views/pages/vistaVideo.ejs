@@ -71,10 +71,10 @@
                             </div>
                             <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 th-large-size-p-horizontal--large">
                                 <h3 class="th-text--default th-text--bold th-color--sand">
-                                    Productos
+                                    Productos (<%= filtros.nubes.length %>)
                                 </h3>
                                 <div class="tag-filter-list__container">
-                                    <ul class="tag-filter-list" data-filter-type="nube" style="columns: 3;">
+                                    <ul class="tag-filter-list" data-filter-type="nube" style="columns: 2;">
                                         <% filtros.nubes.forEach(function(r) { %>
                                         <li>
                                             <a class="label filter-tag" data-filter="nube-<%= r.replace(' ', '-') %>" href="#">
