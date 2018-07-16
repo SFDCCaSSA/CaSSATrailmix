@@ -197,7 +197,6 @@
                 });
 
                 $j(".slds-icon_container").click(function() {
-                    console.log($j(this));
                     $j(".slds-icon_container").show();
                     $j(this).hide();
                     $j(".filter-groups").toggleClass("hidden");
@@ -211,9 +210,7 @@
                     $j(".tile-container").hide();
 
                     $j(".filter-tag-active").each(function( index ) {
-                        console.log( index + ": " + $j( this ).data("filter"));
                         var tagFilter = ".filter-" + $j( this ).data("filter");
-                        console.log(tagFilter);
                         $j(tagFilter).show();
                     });
                 }else{
