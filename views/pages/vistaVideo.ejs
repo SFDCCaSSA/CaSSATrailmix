@@ -43,42 +43,6 @@
                             </a>
                         </div>
                         <div class="slds-grid slds-wrap filter-groups">
-                            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
-                                <div class="slds-grid">
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <h3 class="th-text--default th-text--bold th-color--sand">
-                                            Tu rol
-                                        </h3>
-                                        <div class="tag-filter-list__container">
-                                            <ul class="tag-filter-list" data-filter-type="rol" style="columns: 1;">
-                                                <% filtros.roles.forEach(function(r) { %>
-                                                <li>
-                                                    <a class="label filter-tag" data-filter="rol-<%= r.replace(/ /g , "-") %>" href="#">
-                                                        <%= r %>
-                                                    </a>
-                                                </li>
-                                                <% }); %>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <h3 class="th-text--default th-text--bold th-color--sand">
-                                            Tu nivel
-                                        </h3>
-                                        <div class="tag-filter-list__container">
-                                            <ul class="tag-filter-list" data-filter-type="nivel" style="columns: 1;">
-                                                <% filtros.niveles.forEach(function(r) { %>
-                                                <li>
-                                                    <a class="label filter-tag" data-filter="nivel-<%= r.replace(/ /g , "-") %>" href="#">
-                                                        <%= r %>
-                                                    </a>
-                                                </li>
-                                                <% }); %>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 th-large-size-p-horizontal--large">
                                 <h3 class="th-text--default th-text--bold th-color--sand">
                                     Productos (<%= filtros.nubes.length %>)
@@ -109,6 +73,42 @@
                                         </li>
                                         <% }); %>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <h3 class="th-text--default th-text--bold th-color--sand">
+                                            Tu rol
+                                        </h3>
+                                        <div class="tag-filter-list__container">
+                                            <ul class="tag-filter-list" data-filter-type="rol" style="columns: 1;">
+                                                <% filtros.roles.forEach(function(r) { %>
+                                                <li>
+                                                    <a class="label filter-tag" data-filter="rol-<%= r.replace(/ /g , "-") %>" href="#">
+                                                        <%= r %>
+                                                    </a>
+                                                </li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 hidden">
+                                        <h3 class="th-text--default th-text--bold th-color--sand">
+                                            Tu nivel
+                                        </h3>
+                                        <div class="tag-filter-list__container">
+                                            <ul class="tag-filter-list" data-filter-type="nivel" style="columns: 1;">
+                                                <% filtros.niveles.forEach(function(r) { %>
+                                                <li>
+                                                    <a class="label filter-tag" data-filter="nivel-<%= r.replace(/ /g , "-") %>" href="#">
+                                                        <%= r %>
+                                                    </a>
+                                                </li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
