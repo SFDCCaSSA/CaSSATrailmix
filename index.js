@@ -28,7 +28,7 @@ app
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Inicio' and estatus__c='Activo' order by nube__c, id asc");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Inicio' limit 1");
       //console.log(results);
-      //console.log(configPage);
+      console.log(configPage);
       res.render('pages/index', {results : results, "configPage" : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
