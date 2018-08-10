@@ -1,5 +1,5 @@
 		<header class="th-header" >
-			<div class="slds-container_x-large slds-container_center slds-grid slds-p-horizontal_medium" >
+			<div class="slds-container_x-large slds-container_center slds-grid slds-p-horizontal_medium slds-show_large" >
 				<!--div class="slds-global-header__item"-->
 				<a title="site home" href="/">
 					<img alt="trailhead" style="width: 100px;" class="slds-m-vertical_medium slds-show_large" src="/assets/images/logo-salesforce.svg" />
@@ -71,6 +71,56 @@
 				</ul-->		
 			</div>
 
+<div data-reactroot="">
+    <div class="th-header--mobile slds-hide_large">
+        <div class="slds-grid slds-p-horizontal_medium slds-grid_align-spread">
+            <div class="slds-col">
+                <button class="slds-button slds-m-top_x-small">
+                	<span class="slds-btn-menu slds-icon_container">
+                		<svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                			<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#rows"></use>
+                		</svg>
+                		<span class="slds-assistive-text"></span>
+                	</span>
+                	<span class="slds-btn-menu slds-icon_container slds-hide">
+                		<svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                			<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                		</svg>
+                		<span class="slds-assistive-text"></span>
+                	</span>
+                </button>
+            </div>
+            <!--div class="slds-col">
+                <div class="slds-m-top_xx-small">
+                    <button class="slds-button th-button th-button--small th-button--green">Sign Up</button>
+                    <button class="slds-button th-button th-button--small th-button--link">Login</button>
+                </div>
+            </div-->
+        </div>
+        <div class="th-header-menu th-header__drawer slds-hide">
+            <div>
+                <ul class="slds-m-top_xx-small">
+                    <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Inicio</span></a></li>
+                    <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/webinars"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Webinars</span></a></li>
+                    <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/microdemos"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Microdemos</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+
+<script type="text/javascript">
+    $j(document).ready(function(){
+
+        $j(".slds-btn-menu").click(function() {
+            $j(".slds-btn-menu").show();
+            $j(this).hide();
+            $j(".th-header-menu").toggleClass("slds-hide");
+        });
+    });
+
+</script>
 
 		</header>

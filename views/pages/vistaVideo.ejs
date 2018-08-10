@@ -32,11 +32,11 @@
                                 </a>
                             </h3>
                             <a class="filter-toggler">
-                                <span class="slds-icon_container slds-icon-utility-chevronup" title="" style="display: inline-block;">
+                                <span class="slds-filtros slds-icon_container slds-icon-utility-chevronup" title="" style="display: inline-block;">
                                 -
                                 </span>
 
-                                <span class="slds-icon_container slds-icon-utility-chevrondown" title="" style="display: none;">
+                                <span class="slds-filtros slds-icon_container slds-icon-utility-chevrondown" title="" style="display: none;">
                                 +
                                 </span>
 
@@ -196,8 +196,8 @@
                     filtrarVideos();
                 });
 
-                $j(".slds-icon_container").click(function() {
-                    $j(".slds-icon_container").show();
+                $j(".slds-filtros").click(function() {
+                    $j(".slds-filtros").show();
                     $j(this).hide();
                     $j(".filter-groups").toggleClass("hidden");
                     $j(".clear-filter").toggleClass("hidden");
