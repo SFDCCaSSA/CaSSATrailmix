@@ -6824,7 +6824,7 @@ form input, form textarea {
 @font-face {
 	font-family: TrailheadBold;
 	src: url(/assets/Trailhead-Bold-f20338de89b7c15d7f3ccd1068cf7481c9c8e387553a0b225d54f6249119b9aa.eot);
-	src: url(/assets/Trailhead-Bold-f20338de89b7c15d7f3ccd1068cf7481c9c8e387553a0b225d54f6249119b9aa.eot?#iefix) format("embedded-opentype"), url(/assets/Trailhead-Bold-49c9e897760466f7783f817cffbbdc6beeac9ebf159361b0d0a16c5bd92a7a1b.woff) format("woff"), url(/assets/Trailhead-Bold-dba580dd124128db567a3714d7a8d28171b41698b7e5efd11931e1e1d9b2c5b4.svg#TrailheadBold) format("svg");
+	src: url(/assets/Trailhead-Bold-f20338de89b7c15d7f3ccd1068cf7481c9c8e387553a0b225d54f6249119b9aa.eot?#iefix) format("embedded-opentype"), url(/assets/Trailhead-Bold.woff) format("woff"), url(/assets/Trailhead-Bold.svg#TrailheadBold) format("svg");
 	font-weight: bold;
 	font-style: normal
 }
@@ -6832,7 +6832,7 @@ form input, form textarea {
 @font-face {
 	font-family: SalesforceSans;
 	src: url(/assets/SalesforceSans-Bold-4c773563a97d731154c2965741e5705d6bdd3ce136851371fe4fad714a187669.eot);
-	src: url(/assets/SalesforceSans-Bold-4c773563a97d731154c2965741e5705d6bdd3ce136851371fe4fad714a187669.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Bold-772dcaf2940255be4ba35180a1b48717399fc025aa9c3997062d4feabb57da23.woff) format("woff"), url(/SalesforceSans-Bold.ttf) format("truetype"), url(/assets/SalesforceSans-Bold-4595400371115f80bc04d188962025d3a1297ecd9716768b01b443b0f05da9a9.svg#SalesforceSans) format("svg");
+	src: url(/assets/SalesforceSans-Bold-4c773563a97d731154c2965741e5705d6bdd3ce136851371fe4fad714a187669.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Bold.woff) format("woff"), url(/SalesforceSans-Bold.ttf) format("truetype"), url(/assets/SalesforceSans-Bold-4595400371115f80bc04d188962025d3a1297ecd9716768b01b443b0f05da9a9.svg#SalesforceSans) format("svg");
 	font-weight: bold;
 	font-style: normal
 }
@@ -6848,7 +6848,7 @@ form input, form textarea {
 @font-face {
 	font-family: SalesforceSans;
 	src: url(/assets/SalesforceSans-BoldItalic-e2ae66088523f46919f059ffc637750a706573ff2bab4a5baf53f0750709fdc0.eot);
-	src: url(/assets/SalesforceSans-BoldItalic-e2ae66088523f46919f059ffc637750a706573ff2bab4a5baf53f0750709fdc0.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-BoldItalic-13928913286d20f56861df6eac02e4910429cda0e50af5d97eb782ab49ae8ec6.woff) format("woff"), url(/SalesforceSans-BoldItalic.ttf) format("truetype"), url(/assets/SalesforceSans-BoldItalic-fdc53069e97793c96489dceb6a375371fecdf5154e3b7c10c59bc7312955b904.svg#SalesforceSans) format("svg");
+	src: url(/assets/SalesforceSans-BoldItalic-e2ae66088523f46919f059ffc637750a706573ff2bab4a5baf53f0750709fdc0.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-BoldItalic.woff) format("woff"), url(/SalesforceSans-BoldItalic.ttf) format("truetype"), url(/assets/SalesforceSans-BoldItalic-fdc53069e97793c96489dceb6a375371fecdf5154e3b7c10c59bc7312955b904.svg#SalesforceSans) format("svg");
 	font-weight: bold;
 	font-style: italic
 }
@@ -6880,7 +6880,7 @@ form input, form textarea {
 @font-face {
 	font-family: SalesforceSans;
 	src: url(/assets/SalesforceSans-Light-7862e15c970f8713a5f162b18762a6fa2ab3cb6ef329e18c286b4d4ab154d514.eot);
-	src: url(/assets/SalesforceSans-Light-7862e15c970f8713a5f162b18762a6fa2ab3cb6ef329e18c286b4d4ab154d514.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Light-5aa96c2711a6ba7ebd27c56d9e07014ed2126d8b2f0491e891a6260b39423fb5.woff) format("woff"), url(/assets/SalesforceSans-Light-3a97a18a53c71a5a623f99dac209e9ae2c23f9c089c3328c6aef95859fd521d0.ttf) format("truetype"), url(/assets/SalesforceSans-Light-7ca59bdda2ea672a98fd8b48123dd98c5c0a295a40c40b37bac082348d884d08.svg#SalesforceSans) format("svg");
+	src: url(/assets/SalesforceSans-Light-7862e15c970f8713a5f162b18762a6fa2ab3cb6ef329e18c286b4d4ab154d514.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Light.woff) format("woff"), url(/assets/SalesforceSans-Light-3a97a18a53c71a5a623f99dac209e9ae2c23f9c089c3328c6aef95859fd521d0.ttf) format("truetype"), url(/assets/SalesforceSans-Light-7ca59bdda2ea672a98fd8b48123dd98c5c0a295a40c40b37bac082348d884d08.svg#SalesforceSans) format("svg");
 	font-weight: 300;
 	font-style: normal
 }
@@ -6912,7 +6912,7 @@ form input, form textarea {
 @font-face {
 	font-family: SalesforceSans;
 	src: url(/assets/SalesforceSans-Regular-16d4a1aa485bf3a3dc3fb5de40d9dfe3fd4e7b1a40cb30133e90bf5c705570ba.eot);
-	src: url(/assets/SalesforceSans-Regular-16d4a1aa485bf3a3dc3fb5de40d9dfe3fd4e7b1a40cb30133e90bf5c705570ba.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Regular-61b1f95fd4b77f7674f18aca5e867efb6e1ca58026ae61cc43f0f7b86d05743d.woff) format("woff"), url(/SalesforceSans-Regular.ttf) format("truetype"), url(/assets/SalesforceSans-Regular-1d746eb94850e3c6a41a133e49168fb49c2d8236cd93949b760bc07c94c2f6cc.svg#SalesforceSans) format("svg");
+	src: url(/assets/SalesforceSans-Regular-16d4a1aa485bf3a3dc3fb5de40d9dfe3fd4e7b1a40cb30133e90bf5c705570ba.eot?#iefix) format("embedded-opentype"), url(/assets/SalesforceSans-Regular.woff) format("woff"), url(/SalesforceSans-Regular.ttf) format("truetype"), url(/assets/SalesforceSans-Regular-1d746eb94850e3c6a41a133e49168fb49c2d8236cd93949b760bc07c94c2f6cc.svg#SalesforceSans) format("svg");
 	font-weight: normal;
 	font-style: normal
 }
@@ -6959,7 +6959,7 @@ form input, form textarea {
 
 @font-face {
 	font-family: "TrailheadBold";
-	src: url(/assets/Trailhead-Bold-49c9e897760466f7783f817cffbbdc6beeac9ebf159361b0d0a16c5bd92a7a1b.woff) format("woff"), url(/assets/Trailhead-Bold-dba580dd124128db567a3714d7a8d28171b41698b7e5efd11931e1e1d9b2c5b4.svg) format("svg"), url(/assets/Trailhead-Bold-f20338de89b7c15d7f3ccd1068cf7481c9c8e387553a0b225d54f6249119b9aa.eot) format("embedded-opentype")
+	src: url(/assets/Trailhead-Bold.woff) format("woff"), url(/assets/Trailhead-Bold.svg) format("svg"), url(/assets/Trailhead-Bold-f20338de89b7c15d7f3ccd1068cf7481c9c8e387553a0b225d54f6249119b9aa.eot) format("embedded-opentype")
 }
 
 @font-face {
@@ -6970,8 +6970,8 @@ form input, form textarea {
 @font-face {
 	font-family: 'NexaRustSans-Black';
 	font-weight: bold;
-	src: url(/assets/NexaRustSans-Black-d34e8b196e0856c16a16eb8710fa22e035530fa83f6108dd0e903b4072d72490.eot);
-	src: url(/assets/NexaRustSans-Black-d34e8b196e0856c16a16eb8710fa22e035530fa83f6108dd0e903b4072d72490.eot?#iefix) format("embedded-opentype"), url(/assets/NexaRustSans-Black-e51c66e469025f6d62dd6e3ac7cdf84ff5aafe8327d148737ed2fed09c87a654.woff2) format("woff2"), url(/assets/NexaRustSans-Black-12dff02481a855a2bda5ca9358c1d717f0bceb765f63af5074d6edfc47c12fce.woff) format("woff"), url(/assets/NexaRustSans-Black-cada7fb075b2f3523e6f6cc56c3de061e6ac1b2d2b293fe5a44a59df03f16846.ttf) format("truetype")
+	src: url(/assets/NexaRustSans-Black.eot);
+	src: url(/assets/NexaRustSans-Black.eot?#iefix) format("embedded-opentype"), url(/assets/NexaRustSans-Black.woff2) format("woff2"), url(/assets/NexaRustSans-Black.woff) format("woff"), url(/assets/NexaRustSans-Black.ttf) format("truetype")
 }
 
 @font-face {
@@ -11288,7 +11288,7 @@ button.modal-close {
 .favorite .heart {
 	height: 30px;
 	width: 30px;
-	background: url(/assets/favorites/heart_sprite-aa0361b7e827b22628de0da84c5f2d2fdced3b7b862aa9ec115e8bc8d4913b5d.svg);
+	background: url(/assets/favorites/heart_sprite.svg);
 	background-repeat: no-repeat;
 	background-position: center 6px
 }
@@ -11307,7 +11307,7 @@ button.modal-close {
 }
 
 .favorite:after {
-	background-image: url(/assets/favorites/astro-heart-76157b40805e82e50923a4b09c90a6d297164dc6824e5279dc0f0a4acabe77d1.svg);
+	background-image: url(/assets/favorites/astro-heart.svg);
 	background-repeat: no-repeat;
 	width: 40px;
 	height: 50px;
@@ -11328,7 +11328,7 @@ button.modal-close {
 }
 
 .favorite:before {
-	background-image: url(/assets/favorites/astro-heartless-bb49198b31124f55e309f60e555a36b7a48b3bc2858230b2a44150f06d0ab37c.svg);
+	background-image: url(/assets/favorites/astro-heartless.svg);
 	background-repeat: no-repeat;
 	width: 70px;
 	height: 80px;
@@ -11340,7 +11340,7 @@ button.modal-close {
 }
 
 .favorite .heart:after {
-	background-image: url(/assets/favorites/heart-20380dfe934c00ea913e70174454acd792e9c3e99d7232e899f5b2e50779c580.svg);
+	background-image: url(/assets/favorites/heart.svg);
 	background-repeat: no-repeat;
 	width: 70px;
 	height: 70px;
@@ -12623,7 +12623,7 @@ button.modal-close {
 }
 
 .home .content {
-	background: #f1f1f0 url(/assets/bg-pattern-5a346d0b1778592ea003002289888efd15e3a99037b27ae5163c0806abb77e78.png);
+	background: #f1f1f0 url(/assets/images/bg-pattern.png);
 	overflow: hidden
 }
 

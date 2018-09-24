@@ -9,20 +9,28 @@
 				<div class="slds-m-left_large slds-m-top_medium">
 					<!--div aria-expanded="false" aria-haspopup="listbox" class="slds-form-element slds-lookup" role="combobox" -->
 					<div>
-						<!--form>
-							<div class="slds-form-element">
-								<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left ">
-									<span class="slds-icon slds-input__icon slds-input__icon_left" title="Buscar">
-										<svg class="slds-input__icon slds-input__icon_left" aria-hidden="true">
-											<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search" />							
-										</svg>
-										<span class="slds-assistive-text">Buscar</span>
-									</span>
-									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="global-search-01" placeholder="Buscar en Salesforce" role="textbox" />
+						<div class="desktop-header__search">
+							<div data-react-class="search/SearchBar" data-react-props="">
+								<div data-reactroot="" data-test="search-textbox">
+									<div class="slds-form-element">
+										<label class="slds-form-element__label slds-assistive-text" for="search">
+											Buscar...
+										</label>
+										<div class="slds-form-element__control">
+											<div class="slds-combobox_container">
+												<div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click ignore-react-onclickoutside" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+													<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+														<input type="text" aria-autocomplete="list" aria-controls="search-listbox" autocomplete="off" class="slds-input slds-combobox__input" id="search" placeholder="Buscar..." role="textbox" value="">
+														<svg aria-hidden="true" class="slds-input__icon slds-icon-text-default">
+															<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</form-->
-						<div class="desktop-header__search">
 
 						</div>
 						<nav role="navigation">
@@ -35,12 +43,17 @@
 								</li>
 								<li class="slds-context-bar__item">
 									<a href="/webinars" class="slds-context-bar__label-action" title="Webinars">
-		            					<span class="slds-truncate" title="Trails">Webinars</span>
+		            					<span class="slds-truncate" title="Webinars">Webinars</span>
 		        					</a>
 								</li>
 								<li class="slds-context-bar__item">
 									<a href="/microdemos" class="slds-context-bar__label-action" title="Microdemos">
-		            					<span class="slds-truncate" title="Trails">Microdemos</span>
+		            					<span class="slds-truncate" title="Microdemos">Microdemos</span>
+		        					</a>
+								</li>
+								<li class="slds-context-bar__item">
+									<a href="/exitos" class="slds-context-bar__label-action" title="Exitos">
+		            					<span class="slds-truncate" title="Exitos">Casos de &eacute;xito</span>
 		        					</a>
 								</li>
 								<!--li class="slds-context-bar__item">
@@ -99,10 +112,24 @@
         </div>
         <div class="th-header-menu th-header__drawer slds-hide">
             <div>
+						<form>
+							<div class="slds-form-element">
+								<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left ">
+									<span class="slds-icon slds-input__icon slds-input__icon_left" title="Buscar">
+										<svg class="slds-input__icon slds-input__icon_left" aria-hidden="true">
+											<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search" />							
+										</svg>
+										<span class="slds-assistive-text">Buscar</span>
+									</span>
+									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="global-search-01" placeholder="Buscar en Salesforce" role="textbox" />
+								</div>
+							</div>
+						</form>
                 <ul class="slds-m-top_xx-small">
                     <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Inicio</span></a></li>
                     <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/webinars"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Webinars</span></a></li>
                     <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/microdemos"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Microdemos</span></a></li>
+                    <li><a class="slds-p-left_large slds-p-vertical_x-small slds-show Bgc(#ecf5ff):h Fw(b):h Td(n):h Fz(1rem)" href="/exitos"><span class="slds-p-bottom_xx-small th-header__nav-item--mobile">Casos de &eacute;xito</span></a></li>
                 </ul>
             </div>
         </div>
