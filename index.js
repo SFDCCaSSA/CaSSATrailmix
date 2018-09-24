@@ -66,6 +66,36 @@ app
       res.send("Error " + err);
     }
   })
+  .get('/exitos', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Caso Exito' and estatus__c='Activo' order by nube__c, id asc");
+      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Caso Exito' limit 1");
+      //console.log(results);
+      //console.log(configPage);
+      res.render('pages/vistaVideo', {results : results, configPage : configPage.rows[0], filtros : generaFiltros(results)});
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+  .get('/busqueda', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Caso Exito' and estatus__c='Activo' order by nube__c, id asc");
+      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Caso Exito' limit 1");
+      //console.log(results);
+      //console.log(configPage);
+      res.render('pages/busqueda', {results : results, configPage : configPage.rows[0], filtros : generaFiltros(results)});
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
   .post("/upsertVideo", function(req, res) {
     var datas = parseRequest(req);
     for(let i=0 ; i < datas.length ; i++){
