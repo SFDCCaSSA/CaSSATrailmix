@@ -36,51 +36,48 @@
 
 
 
-                            <div class="" id="calendar">
-                                    <link rel='stylesheet' href='/assets/fullcalendar/fullcalendar.css' />
-                                    <!--script src='/assets/fullcalendar/lib/jquery.min.js'></script-->
-                                    <script src='/assets/fullcalendar/lib/moment.min.js'></script>
-                                    <script src='/assets/fullcalendar/fullcalendar.js'></script>
-                                    <script src='/assets/fullcalendar/locale-all.js'></script>
-                                <script type='text/javascript' src='/assets/fullcalendar/gcal.js'></script>
+                            <div id="calendar"></div>
+                            <link rel='stylesheet' href='/assets/fullcalendar/fullcalendar.css' />
+                            <!--script src='/assets/fullcalendar/lib/jquery.min.js'></script-->
+                            <script src='/assets/fullcalendar/lib/moment.min.js'></script>
+                            <script src='/assets/fullcalendar/fullcalendar.js'></script>
+                            <script src='/assets/fullcalendar/locale-all.js'></script>
+                            <script type='text/javascript' src='/assets/fullcalendar/gcal.js'></script>
 
-                                <script type='text/javascript'>
+                            <script type='text/javascript'>
 
-                                    $j(function() {
-                                      $j('#calendar').fullCalendar({
-                                        header: {
-                                            left: 'prev,next today',
-                                            center: 'title',
-                                            right: 'month,listYear'
-                                        },
-                                        displayEventTime: false,
-                                        eventClick: function(event) {
-                                            window.open(event.url, 'gcalevent', 'width=700,height=600');
-                                            return false;
-                                        },
-                                        googleCalendarApiKey: 'AIzaSyAMB60kp8SuLLuVjTYF6BMNoZ8VP7HZIO0',
-                                        eventSources: [
-                                            {
-                                                googleCalendarId: 'salesforce.com_s7sc4bik4tsm4urd43k98473t0@group.calendar.google.com',
-                                                className: 'gcal-event'
-                                            }/**,
-                                            {
-                                                googleCalendarId: 'en.usa#holiday@group.v.calendar.google.com',
-                                                className: 'nice-event'
-                                            }**/
-                                        ],
-                                        loading: function(bool) {
+                                $j(function() {
+                                    $j('#calendar').fullCalendar({
+                                    header: {
+                                        left: 'prev,next today',
+                                        center: 'title',
+                                        right: 'month,listYear'
+                                    },
+                                    displayEventTime: false,
+                                    eventClick: function(event) {
+                                        window.open(event.url, 'gcalevent', 'width=700,height=600');
+                                        return false;
+                                    },
+                                    googleCalendarApiKey: '<%= process.env.GOOGLE_CALENDAR_API_KEY %>',
+                                    eventSources: [
+                                        {
+                                            googleCalendarId: 'salesforce.com_s7sc4bik4tsm4urd43k98473t0@group.calendar.google.com',
+                                            className: 'gcal-event'
+                                        }/**,
+                                        {
+                                            googleCalendarId: 'en.usa#holiday@group.v.calendar.google.com',
+                                            className: 'nice-event'
+                                        }**/
+                                    ],
+                                    loading: function(bool) {
 
-                                        },
-                                        aspectRatio: 3,
-                                        locale: 'es'
-                                      });
+                                    },
+                                    aspectRatio: 2,
+                                    locale: 'es'
                                     });
-                                    
-                                </script>
-
-
-                            </div>
+                                });
+                                
+                            </script>
 
 
                             <div class="responsiveCal hidden">
