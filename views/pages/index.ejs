@@ -33,7 +33,57 @@
                             <div class="th-color--navy th-text--medium">
                                 <%- configPage.subtitulo__c %>
                             </div>
-                            <div class="responsiveCal">
+
+
+
+                            <div class="" id="calendar">
+                                    <link rel='stylesheet' href='/assets/fullcalendar/fullcalendar.css' />
+                                    <!--script src='/assets/fullcalendar/lib/jquery.min.js'></script-->
+                                    <script src='/assets/fullcalendar/lib/moment.min.js'></script>
+                                    <script src='/assets/fullcalendar/fullcalendar.js'></script>
+                                    <script src='/assets/fullcalendar/locale-all.js'></script>
+                                <script type='text/javascript' src='/assets/fullcalendar/gcal.js'></script>
+
+                                <script type='text/javascript'>
+
+                                    $j(function() {
+                                      $j('#calendar').fullCalendar({
+                                        header: {
+                                            left: 'prev,next today',
+                                            center: 'title',
+                                            right: 'month,listYear'
+                                        },
+                                        displayEventTime: false,
+                                        eventClick: function(event) {
+                                            window.open(event.url, 'gcalevent', 'width=700,height=600');
+                                            return false;
+                                        },
+                                        googleCalendarApiKey: 'AIzaSyAMB60kp8SuLLuVjTYF6BMNoZ8VP7HZIO0',
+                                        eventSources: [
+                                            {
+                                                googleCalendarId: 'salesforce.com_s7sc4bik4tsm4urd43k98473t0@group.calendar.google.com',
+                                                className: 'gcal-event'
+                                            }/**,
+                                            {
+                                                googleCalendarId: 'en.usa#holiday@group.v.calendar.google.com',
+                                                className: 'nice-event'
+                                            }**/
+                                        ],
+                                        loading: function(bool) {
+
+                                        },
+                                        aspectRatio: 3,
+                                        locale: 'es'
+                                      });
+                                    });
+                                    
+                                </script>
+
+
+                            </div>
+
+
+                            <div class="responsiveCal hidden">
           <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=salesforce.com_s7sc4bik4tsm4urd43k98473t0%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FMexico_City" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                             </div>
                         </div>
