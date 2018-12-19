@@ -221,11 +221,11 @@
 }
 </style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_CALENDAR_API_KEY %>"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.GOOGLE_ANALYTISCS_KEY %>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '<%= process.env.GOOGLE_CALENDAR_API_KEY %>');
+  gtag('config', '<%= process.env.GOOGLE_ANALYTISCS_KEY %>');
 </script>
