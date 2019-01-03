@@ -20,7 +20,7 @@
 											<div class="slds-combobox_container">
 												<div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click ignore-react-onclickoutside" aria-expanded="false" aria-haspopup="listbox" role="combobox">
 													<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
-														<input type="text" aria-autocomplete="list" aria-controls="search-listbox" autocomplete="off" class="slds-input slds-combobox__input" id="search" placeholder="Buscar..." role="textbox" value="<%- keywords %>">
+														<input type="text" aria-autocomplete="list" aria-controls="search-listbox" autocomplete="off" class="slds-input slds-combobox__input" id="search" placeholder="Buscar..." role="textbox" value="">
 														<svg aria-hidden="true" class="slds-input__icon slds-icon-text-default" id="search-desktop-icon">
 															<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
 														</svg>
@@ -121,7 +121,7 @@
 										</svg>
 										<span class="slds-assistive-text">Buscar</span>
 									</span>
-									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="search-mobile" placeholder="Buscar en Salesforce" role="textbox" value="<%- keywords %>" />
+									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="search-mobile" placeholder="Buscar en Salesforce" role="textbox" value="" />
 								</div>
 							</div>
 						</form>
@@ -140,7 +140,10 @@
 
 <script type="text/javascript">
     $j(document).ready(function(){
-		$j("#vvTituloSearch").text("<%- keywords %>");
+		var searchText = getUrlParameter("keywords");
+		$j("#vvTituloSearch").text(searchText);
+		$j("#search").val(searchText);
+		$j("#search-mobile").val(searchText);
         $j(".slds-btn-menu").click(function() {
             $j(".slds-btn-menu").show();
             $j(this).hide();
@@ -179,6 +182,15 @@
 			document.location.href = "/search?keywords="+valor;
 		}
 	}
+
+
+
+	function getUrlParameter(name) {
+		name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+		var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+		var results = regex.exec(location.search);
+		return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	};
 </script>
 
 		</header>
