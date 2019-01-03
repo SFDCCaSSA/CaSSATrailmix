@@ -86,7 +86,7 @@ app
       var keywords = req.param('keywords');
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE name like '%" + keywords + "%' and estatus__c='Activo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE LOWER(name) like LOWER('%" + keywords + "%') and estatus__c='Activo' order by nube__c, id asc");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Busqueda' limit 1");
       //console.log(results);
       //console.log(configPage);

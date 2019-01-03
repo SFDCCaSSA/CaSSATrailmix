@@ -141,6 +141,9 @@
 <script type="text/javascript">
     $j(document).ready(function(){
 		var searchText = getUrlParameter("keywords");
+		$j('#contenido').highlight(searchText);
+		$j('.tile-title').highlight(searchText);
+		$j('.tile-description').highlight(searchText);
 		$j("#vvTituloSearch").text(searchText);
 		$j("#search").val(searchText);
 		$j("#search-mobile").val(searchText);
