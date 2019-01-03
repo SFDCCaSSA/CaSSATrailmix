@@ -9,7 +9,7 @@
 				<div class="slds-m-left_large slds-m-top_medium">
 					<!--div aria-expanded="false" aria-haspopup="listbox" class="slds-form-element slds-lookup" role="combobox" -->
 					<div>
-						<div class="desktop-header__search hidden">
+						<div class="desktop-header__search">
 							<div data-react-class="search/SearchBar" data-react-props="">
 								<div data-reactroot="" data-test="search-textbox">
 									<div class="slds-form-element">
@@ -20,8 +20,8 @@
 											<div class="slds-combobox_container">
 												<div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click ignore-react-onclickoutside" aria-expanded="false" aria-haspopup="listbox" role="combobox">
 													<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
-														<input type="text" aria-autocomplete="list" aria-controls="search-listbox" autocomplete="off" class="slds-input slds-combobox__input" id="search" placeholder="Buscar..." role="textbox" value="">
-														<svg aria-hidden="true" class="slds-input__icon slds-icon-text-default">
+														<input type="text" aria-autocomplete="list" aria-controls="search-listbox" autocomplete="off" class="slds-input slds-combobox__input" id="search" placeholder="Buscar..." role="textbox" value="<%- keywords %>">
+														<svg aria-hidden="true" class="slds-input__icon slds-icon-text-default" id="search-desktop-icon">
 															<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
 														</svg>
 													</div>
@@ -113,15 +113,15 @@
         <div class="th-header-menu th-header__drawer slds-hide">
             <div>
 						<form>
-							<div class="slds-form-element hidden">
+							<div class="slds-form-element">
 								<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left ">
-									<span class="slds-icon slds-input__icon slds-input__icon_left" title="Buscar">
-										<svg class="slds-input__icon slds-input__icon_left" aria-hidden="true">
+									<span class="slds-icon slds-input_icon slds-input_icon_left" title="Buscar">
+										<svg id="search-mobile-icon" class="slds-input__icon slds-input__icon_left" aria-hidden="true">
 											<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search" />							
 										</svg>
 										<span class="slds-assistive-text">Buscar</span>
 									</span>
-									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="global-search-01" placeholder="Buscar en Salesforce" role="textbox" />
+									<input type="text" aria-autocomplete="list" aria-controls="global-search-list-01" autocomplete="off" class="slds-input slds-m-bottom_none th-header__search" id="search-mobile" placeholder="Buscar en Salesforce" role="textbox" value="<%- keywords %>" />
 								</div>
 							</div>
 						</form>
@@ -140,14 +140,45 @@
 
 <script type="text/javascript">
     $j(document).ready(function(){
-
+		$j("#vvTituloSearch").text("<%- keywords %>");
         $j(".slds-btn-menu").click(function() {
             $j(".slds-btn-menu").show();
             $j(this).hide();
             $j(".th-header-menu").toggleClass("slds-hide");
-        });
-    });
-
+		});
+		
+		$j("#search").keypress(function(e){
+			var key = e.which;
+			if(key == 13){
+				buscarTodo($j("#search").val());
+				return false;
+			}
+		});
+		
+		$j("#search-mobile").keypress(function(e){
+			var key = e.which;
+			if(key == 13){
+				buscarTodo($j("#search").val());
+				return false;
+			}
+		});
+		
+		$j("#search-desktop-icon").click(function(e){
+			buscarTodo($j("#search").val());
+		});
+		$j("#search-mobile-icon").click(function(e){
+			buscarTodo($j("#search").val());
+		});
+	});
+	
+	function buscarTodo(valor){
+		console.log(valor);
+		if(valor.length<3){
+			alert("Se requiere minimo 3 caracteres para realizar la busqueda");
+		}else{
+			document.location.href = "/search?keywords="+valor;
+		}
+	}
 </script>
 
 		</header>

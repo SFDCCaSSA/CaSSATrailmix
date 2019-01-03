@@ -51,12 +51,17 @@
                                     header: {
                                         left: 'prev,next today',
                                         center: 'title',
-                                        right: 'month,listYear'
+                                        right: 'listMonth,month'
                                     },
-                                    displayEventTime: false,
+                                    titleFormat: 'MMMM YYYY',
+                                    defaultView: 'listMonth',
+                                    displayEventTime: true,
                                     eventClick: function(event) {
                                         window.open(event.url, 'gcalevent', 'width=700,height=600');
                                         return false;
+                                    },
+                                    eventMouseover: function(event){
+                                        console.log(event);
                                     },
                                     googleCalendarApiKey: '<%= process.env.GOOGLE_CALENDAR_API_KEY %>',
                                     eventSources: [

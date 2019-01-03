@@ -81,15 +81,16 @@ app
       res.send("Error " + err);
     }
   })
-  .get('/busqueda', async (req, res) => {
+  .get('/search', async (req, res) => {
     try {
+      var keywords = req.param('keywords');
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Caso Exito' and estatus__c='Activo' order by nube__c, id asc");
-      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Caso Exito' limit 1");
+      const results = await client.query("SELECT * FROM videos WHERE name like '%" + keywords + "%' and estatus__c='Activo' order by nube__c, id asc");
+      const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Busqueda' limit 1");
       //console.log(results);
       //console.log(configPage);
-      res.render('pages/busqueda', {results : results, configPage : configPage.rows[0], filtros : generaFiltros(results)});
+      res.render('pages/vistaVideo', {results : results, configPage : configPage.rows[0], filtros : generaFiltros(results),keywords: keywords});
       client.release();
     } catch (err) {
       console.error(err);
