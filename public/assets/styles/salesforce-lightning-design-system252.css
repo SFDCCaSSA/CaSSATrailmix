@@ -9443,7 +9443,7 @@ a.slds-button--inverse:focus {
 	border-radius: 0;
 	min-width: 0;
 	color: inherit;
-	font-size: 13px;
+	font-size: 20px !important;
 	font-size: .8125rem
 }
 
