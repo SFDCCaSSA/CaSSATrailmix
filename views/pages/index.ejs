@@ -61,7 +61,7 @@
                                         return false;
                                     },
                                     eventMouseover: function(event){
-                                        console.log(event);
+                                        //console.log(event);
                                     },
                                     googleCalendarApiKey: '<%= process.env.GOOGLE_CALENDAR_API_KEY %>',
                                     eventSources: [
@@ -80,6 +80,7 @@
                                     aspectRatio: 2,
                                     locale: 'es'
                                     });
+                                    $j('#calendar').fullCalendar('next');
                                 });
                                 
                             </script>

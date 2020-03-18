@@ -28,7 +28,7 @@ app
       const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Inicio' and estatus__c='Activo' order by nube__c, id asc");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Inicio' limit 1");
       //console.log(results);
-      console.log(configPage);
+      //console.log(configPage);
       res.render('pages/index', {results : results, "configPage" : configPage.rows[0], filtros : generaFiltros(results)});
       client.release();
     } catch (err) {
@@ -261,7 +261,7 @@ generaFiltros = function(results){
     //var niveles = fila.nivel__c.split(";");
     var nubes = fila.nube__c==null?"":fila.nube__c.split(";");
     var tags = fila.tags__c==null?"":fila.tags__c.split(";");
-    console.log("tags",tags);
+    //console.log("tags",tags);
     fila.filtros = "";
     for (var i = 0; i < roles.length; i++) {
       filtros.roles.push(roles[i]);
@@ -280,12 +280,12 @@ generaFiltros = function(results){
       fila.filtros += " filter-tag-" + tags[i].replace(/ /g , "-");
     }
   }
-  console.log(filtros);
+  //console.log(filtros);
   filtros.roles = removeDuplicateUsingSet(filtros.roles);
   //filtros.niveles = removeDuplicateUsingSet(filtros.niveles);
   filtros.nubes = removeDuplicateUsingSet(filtros.nubes);
   filtros.tags = removeDuplicateUsingSet(filtros.tags);
-  console.log(filtros);
+  //console.log(filtros);
   return filtros;
 }
 
