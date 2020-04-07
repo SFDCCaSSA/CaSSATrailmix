@@ -275,6 +275,7 @@ generaFiltros = function(results){
       filtros.nubes.push(nubes[i]);
       fila.filtros += " filter-nube-" + nubes[i].replace(/ /g , "-");
     }
+    filtros.tags.push("Lo más reciente");
     for (var i = 0; i < tags.length; i++) {
       filtros.tags.push(tags[i]);
       fila.filtros += " filter-tag-" + tags[i].replace(/ /g , "-");
