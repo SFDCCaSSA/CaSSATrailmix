@@ -279,7 +279,6 @@ generaFiltros = function(results){
       filtros.tags.push(tags[i]);
       fila.filtros += " filter-tag-" + tags[i].replace(/ /g , "-");
     }
-    filtros.tags.unshift("Lo más reciente");
   }
   //console.log(filtros);
   filtros.roles = removeDuplicateUsingSet(filtros.roles);

@@ -66,6 +66,11 @@
                                 </h3>
                                 <div class="tag-filter-list__container">
                                     <ul class="tag-filter-list" data-filter-type="tag" style="columns: 2;">
+                                        <li>
+                                            <a class="label filter-tag" data-filter="tag-Lo-más-reciente" href="#">
+                                                <b>Lo más reciente</b>
+                                            </a>
+                                        </li>
                                         <% filtros.tags.forEach(function(r) { %>
                                         <li>
                                             <a class="label filter-tag" data-filter="tag-<%= r.replace(/ /g , "-") %>" href="#">
