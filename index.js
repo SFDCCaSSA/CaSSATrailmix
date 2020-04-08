@@ -14,8 +14,12 @@ require('body-parser-xml')(bodyParser);
 
 app.use(bodyParser.xml());
 
+const cacheTime = 3600000 * 24;
+
 app
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, 'public'), {
+    maxAge: cacheTime
+   }))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/logos', async (req, res) => {
