@@ -25,7 +25,7 @@ app
   .get('/', async (req, res) => {
     try {
       const client = await pool.connect();
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Inicio' and estatus__c='Activo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Inicio' and estatus__c='Activo' order by lastmodifieddate DESC NULLS LAST, nube__c");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Inicio' limit 1");
       //console.log(results);
       //console.log(configPage);
@@ -40,7 +40,7 @@ app
     try {
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM microdemos order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' and estatus__c='Activo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Microdemo' and estatus__c='Activo' order by lastmodifieddate DESC NULLS LAST, nube__c");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Microdemo' limit 1");
       //console.log(results);
       //console.log(configPage);
@@ -55,7 +55,7 @@ app
     try {
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' and estatus__c='Activo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Webinar' and estatus__c='Activo' order by lastmodifieddate DESC NULLS LAST, nube__c");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Webinar' limit 1");
       //console.log(results);
       //console.log(configPage);
@@ -70,7 +70,7 @@ app
     try {
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Caso Exito' and estatus__c='Activo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE tipo__c = 'Caso Exito' and estatus__c='Activo' order by lastmodifieddate DESC NULLS LAST, nube__c");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Caso Exito' limit 1");
       //console.log(results);
       //console.log(configPage);
@@ -86,7 +86,7 @@ app
       var keywords = req.param('keywords');
       const client = await pool.connect();
       //const results = await client.query('SELECT * FROM webinars order by nube, id asc');
-      const results = await client.query("SELECT * FROM videos WHERE LOWER(name) like LOWER('%" + keywords + "%') and estatus__c='Activo' order by nube__c, id asc");
+      const results = await client.query("SELECT * FROM videos WHERE LOWER(name) like LOWER('%" + keywords + "%') and estatus__c='Activo' order by lastmodifieddate DESC NULLS LAST, nube__c");
       const configPage = await client.query("SELECT * FROM configportal WHERE name = 'Busqueda' limit 1");
       //console.log(results);
       //console.log(configPage);
@@ -209,6 +209,10 @@ upsertVideo = function(data){
         campos += ",impartidopor__c";
         valores += ",${ImpartidoPor__c}";
       }
+      if(data.LastModifiedDate !== undefined){
+        campos += ",lastmodifieddate";
+        valores += ",${LastModifiedDate}";
+      }      
 
       var query = "INSERT INTO videos(id" + campos + ") VALUES (${Id}" + valores + ") ON CONFLICT (id) DO UPDATE SET (" + (campos.substring(0,1)==","?campos.substring(1):campos) + ") = (" + (valores.substring(0,1)==","?valores.substring(1):valores) + ") WHERE videos.id = ${Id}";
       console.log('Query:', query);
